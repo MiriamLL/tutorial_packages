@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>PackageDevelopment</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Miriam Lerma" />
+    <script src="PackageDevelop_files/header-attrs-2.6/header-attrs.js"></script>
+    <script src="PackageDevelop_files/clipboard-2.0.6/clipboard.min.js"></script>
+    <link href="PackageDevelop_files/xaringanExtra-clipboard-0.2.4/xaringanExtra-clipboard.css" rel="stylesheet" />
+    <script src="PackageDevelop_files/xaringanExtra-clipboard-0.2.4/xaringanExtra-clipboard.js"></script>
+    <script>window.xaringanExtraClipboard(null, {"button":"Copy Code","success":"Copied!","error":"Press Ctrl+C to Copy"})</script>
+    <link href="PackageDevelop_files/panelset-0.2.4/panelset.css" rel="stylesheet" />
+    <script src="PackageDevelop_files/panelset-0.2.4/panelset.js"></script>
+    <link rel="stylesheet" href="Package-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+class: title-slide, center, middle
+background-image: url(https://images.unsplash.com/photo-1518289646039-3e6c87a5aaf6?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1351&amp;q=80)
+background-size: cover
+
+&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #000000 !important;" &gt;Crear tus propios&lt;/span&gt; &lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #000000 !important;font-size: 120px;" &gt;Paquetes&lt;/span&gt;
+
+&lt;br&gt;
+&lt;h2&gt;&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #000000 !important;" &gt;Miriam Lerma&lt;/span&gt;&lt;/h2&gt;
+
+&lt;h3&gt;&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #000000 !important;" &gt;Abril 2021&lt;/span&gt;&lt;/h3&gt;
+
+
+---
+class: inverse
+
+# Intro
+
+- [Que es un paquete](#intro)  
+- [Como agregar datos](#datos)
+- [Como crear función](#funciones)
+- [Como crear hexsticker](#sticker)
+
+
+
+
+
+---
+
+class: inverse
+
+# Créditos y recursos
+
+- Libros&lt;br&gt;
+[R Packages](https://r-pkgs.org/intro.html)
+
+- Datos &lt;br&gt;
+[Incluir datos](https://r-pkgs.org/man.html) &lt;br&gt;
+[Documentar datos](https://kbroman.org/pkg_primer/pages/data.html) &lt;br&gt;
+
+- Funciones &lt;br&gt;
+Tu paquete en una hora por [&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#4cc9f0;" viewBox="0 0 576 512"&gt;&lt;path d="M576 24v127.984c0 21.461-25.96 31.98-40.971 16.971l-35.707-35.709-243.523 243.523c-9.373 9.373-24.568 9.373-33.941 0l-22.627-22.627c-9.373-9.373-9.373-24.569 0-33.941L442.756 76.676l-35.703-35.705C391.982 25.9 402.656 0 424.024 0H552c13.255 0 24 10.745 24 24zM407.029 270.794l-16 16A23.999 23.999 0 0 0 384 303.765V448H64V128h264a24.003 24.003 0 0 0 16.97-7.029l16-16C376.089 89.851 365.381 64 344 64H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V287.764c0-21.382-25.852-32.09-40.971-16.97z"/&gt;&lt;/svg&gt; Piping hot data](https://www.pipinghotdata.com/posts/2020-10-25-your-first-r-package-in-1-hour/)&lt;br&gt;
+
+---
+name: intro
+class: title-slide, center, middle
+background-image: url(https://images.unsplash.com/photo-1518289646039-3e6c87a5aaf6?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1351&amp;q=80)
+background-size: cover
+
+&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #000000 !important;font-size: 120px;" &gt;Paquetes&lt;/span&gt;
+
+---
+
+## 1.1. Intro
+
+**Motivantes**
+
+- Repito pasos y análisis con datos similares...  
+.right[ _hasta ahora reciclo funciones de scripts anteriores_ ]
+
+- Estudiantes y colegas me preguntan como realizar análisis similares...  
+.right[ _muchos no estan familizarizados con la sintaxis de las funciones_]
+
+- Los artículos me piden más detalles de como se realizaron los análisis...   
+.right[ _el espacio es limitado para dar detalles_ ]
+
+- Existen paquetes similares pero que no cubren con todos los pasos...   
+.right[  _uso partes de algunos paquetes y adapto a mi nuevo analisis_ ]
+
+- Quiero que otras personas puedan replicar mis análisis...   
+.right[ _quiero que las funciones esten accesibles_ ]
+
+
+
+**Motivantes personales**  
+Quiero hacer las funciones y documentacion accesibles en ingles y español.  
+
+
+No es importante para mi que esten en CRAN.  Por eso no tocare el tema de CRAN.   
+
+---
+
+## 1.2. Crear paquete
+
+**Paquete**
+Para crear paquetes yo use el paquete **usethis**
+
+Para instalar y cargar la librería:
+
+```r
+#install.packages('usethis')
+library(usethis)
+```
+
+---
+
+## 1.2. Checa nombre
+
+Antes de iniciar tu paquete, puedes consultar el nombre que le daras en la pagina [CRAN](https://cran.r-project.org/)
+
+Tambien existe la libreria **available** para revisar si tu paquete ya existe en CRAN o en github y si el nombre de tu paquete puede ser ofensivo.
+
+```r
+#install.packages('available')
+library(available)
+available("El nombre de tu paquete")
+```
+
+Ejemplo con mi paquete:
+
+```r
+library(available)
+available("spheniscus")
+```
+Una vez le des enter, te pregunta si quieres que revise por contenido ofensivo, puedes poner **Y** si quieres que revise.
+
+```r
+Urban Dictionary can contain potentially offensive results,
+  should they be included? [Y]es / [N]o:
+```
+Despues te abre las paginas para mostrarte que significa el nombre de tu paquete.
+
+---
+
+## 1.3. Crear
+
+Para crear un paquete la funcion **create_package** crea el **esqueleto** de los paquetes.  &lt;br&gt;
+Dentro pon el nombre del paquete que te interesa.  
+
+```r
+usethis::create_package("nombre del paquetes")
+```
+
+Te debio aparecer algo asi:
+
+```r
+√ Creating 'nombre_paquete/'
+√ Setting active project to '...'
+√ Creating 'R/'
+√ Writing 'DESCRIPTION'
+Package: nombre_paquete
+Title: What the Package Does (One Line, Title Case)
+Version: 0.0.0.9000
+Authors@R (parsed):
+    * First Last &lt;first.last@example.com&gt; [aut, cre] (YOUR-ORCID-ID)
+Description: What the package does (one paragraph).
+License: `use_mit_license()`, `use_gpl3_license()` or friends to
+    pick a license
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+√ Writing 'NAMESPACE'
+√ Writing 'nombre_paquete.Rproj'
+√ Adding '^nombre_paquete\\.Rproj$' to '.Rbuildignore'
+√ Adding '.Rproj.user' to '.gitignore'
+√ Adding '^\\.Rproj\\.user$' to '.Rbuildignore'
+√ Opening '...' in new RStudio session
+√ Setting active project to '&lt;no active project&gt;'
+```
+
+---
+
+## 1.3. Crear
+
+Creo los archivos:
+- .gitignore
+- .Rbuildignore
+- DESCRIPTIOn
+- NAMESPACE
+- README.md
+
+Los Folders:
+- R
+
+
+---
+
+## 1.1. Intro
+
+Si estas dentro de un **proyecto** te va preguntar si quieres sobregrabar el proyecto existente.  
+Yo le di **2: Absolutely**
+
+
+```r
+v Writing 'NAMESPACE'
+Overwrite pre-existing file 'nombre_paquete.Rproj'?
+
+1: Not now
+2: Absolutely
+3: No way
+```
+
+Me aparecio:
+
+```r
+v Writing 'nombre_paquete.Rproj'
+v Adding '^nombre_paquete\\.Rproj$' to '.Rbuildignore'
+v Adding '^\\.Rproj\\.user$' to '.Rbuildignore'
+v Opening '...' in new RStudio session
+v Setting active project to '&lt;no active project&gt;'
+```
+Me abrio el proyecto en otra ventana.
+
+
+---
+
+## 1.2. Git
+
+Si ya tienes instalado git puedes directamente conectar el paquete con tu repositorio.
+
+Primero puedes escribir en tu consola:
+
+```r
+usethis::use_git()
+```
+
+Te aparece:
+
+```r
+√ Setting active project to '...'
+√ Adding '.Rdata', '.httr-oauth', '.DS_Store' to '.gitignore'
+There are 6 uncommitted files:
+ '.gitignore'
+ '.Rbuildignore'
+ 'DESCRIPTION'
+ 'NAMESPACE'
+Is it ok to commit them?
+
+1: Absolutely not
+2: Yup
+3: Negative
+```
+
+Yo le dije 3: Yup... aunque me tomo un segundo decidir que eso era un **si**
+
+---
+
+## 1.2. Git
+
+Me aparecio
+
+```r
+√ Adding files
+√ Making a commit with message 'Initial commit
+* A restart of RStudio is required to activate the Git pane
+Restart now?
+1: Yup
+2: No
+3: Not now
+```
+
+Yo le dije 1: Yup... que es como decir **sipi**
+
+Y se reinicio la sesion
+
+---
+
+## 1.3. Github
+
+Otra vez en la consola escribi
+
+```r
+usethis::use_github()
+```
+
+Me aparecio
+
+```r
+i Defaulting to https Git protocol
+√ Setting active project to 'C:/Users/Lerma/Documents/spheniscus'
+√ Checking that current branch is default branch ('master')
+√ Creating GitHub repository 'MiriamLL/spheniscus'
+√ Setting remote 'origin' to 'https://github.com/MiriamLL/spheniscus.git'
+√ Setting URL field in DESCRIPTION to 'https://github.com/MiriamLL/spheniscus'
+√ Setting BugReports field in DESCRIPTION to 'https://github.com/MiriamLL/spheniscus/issues'
+There is 1 uncommitted file:
+ 'DESCRIPTION'
+Is it ok to commit it?
+1: No
+2: No way
+3: I agree
+```
+Le di 3: I agree
+
+---
+
+## 1.4. Github
+
+Me aparecio
+
+```r
+√ Adding files
+√ Making a commit with message 'Add GitHub links to DESCRIPTION'
+√ Pushing 'master' branch to GitHub and setting 'origin/master' as upstream branch
+√ Opening URL 'https://github.com/...'
+```
+Y me abrio github
+
+---
+
+## 1.4. devtools
+
+Escribi en la consola
+
+```r
+devtools::check()
+```
+
+Y checo la version, plataforma, sesiones y demas.   
+Tardo un poquito.  
+
+
+```r
+0 errors √ | 1 warning x | 0 notes √
+```
+
+El **warning** es porque debo darle una licencia
+
+```r
+Non-standard license specification:
+    `use_mit_license()`, `use_gpl3_license()` or friends to pick a
+    license
+  Standardizable: FALSE
+```
+
+
+---
+
+## 1.5. Licencia
+
+Para sofware la licencia mas comun es **MIT**
+
+```r
+usethis::use_mit_license("Mi Nombre")
+```
+
+Me aparecio esto:
+
+```r
+√ Setting License field in DESCRIPTION to 'MIT + file LICENSE'
+√ Writing 'LICENSE'
+√ Writing 'LICENSE.md'
+√ Adding '^LICENSE\\.md$' to '.Rbuildignore'
+```
+
+Para revisar si funciono
+
+```r
+devtools::check()
+```
+
+Tarda un poquito
+
+```r
+0 errors √ | 0 warning √ | 0 notes √
+```
+
+
+---
+
+## 1.6. metadata
+
+Abre y modifica el documento que dice DESCRIPTION, agregando tus datos
+
+```r
+Authors@R:
+  person(given = "Miriam",
+         family = "Lerma",
+         role = c("aut", "cre"),
+         email = "miriamjlerma@gmail.com",
+         comment = c(ORCID = "0000-0002-7632-9289"))
+```
+
+Esta la información de contacto y de autor o creador.
+
+---
+
+## 1.7. README
+
+Para crear un nuevo README, el paquete **usethis** tiene una función para crearlo de manera automática,
+
+
+```r
+library(usethis)
+use_readme_rmd(open = rlang::is_interactive())
+```
+
+
+```r
+√ Setting active project to '...'
+√ Writing 'README.Rmd'
+√ Adding '^README\\.Rmd$' to '.Rbuildignore'
+ Modify 'README.Rmd'
+√ Writing '.git/hooks/pre-commit'
+```
+
+
+---
+
+name: datos
+class: title-slide, center, middle
+background-image: url(https://images.unsplash.com/photo-1518289646039-3e6c87a5aaf6?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1351&amp;q=80)
+background-size: cover
+
+&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #000000 !important;font-size: 120px;" &gt;Datos&lt;/span&gt;
+
+
+---
+
+# 2. Datos
+
+
+
+Por convencion deberas crear una carpeta que se llame **data** en tu paquete. &lt;br&gt;
+Puedes hacer eso iendo a tu pestaña de **Files** y elegir **New Folder**. &lt;br&gt;
+
+Para comprimir datos pesados puedes guardarlos como .rda.
+
+```r
+save(TDR_raw, file="TDR_raw.rda")
+```
+
+Para revisar el peso de los datos puedes usar
+
+```r
+object.size(TDR_raw)
+```
+
+
+```r
+pryr::mem_used()
+```
+
+---
+
+## 2.1. Documentar datos
+
+Para documentar tus datos, puedes abrir un nuevo script (File&gt;NewFile&gt;R Script) o usar la función del paquete **usethis**.
+
+```r
+usethis::use_r("TDR_raw")
+```
+
+Esta función agrega comentarios Roxigen y guarda el documento en tu folder llamado **R**. &lt;br&gt;
+En mi caso yo le di al script el mismo nombre que a los datos (TDR_raw). 
+
+```r
+#' Raw data from a TDR (time and depth recorder) of a Humboldt penguin
+#' The data includes raw data obtained from a Humbolt Penguin at Tilgo, Chile
+#' The information was collected during the breeding season 2018.
+#' It contains 264197 obs from 1 variable.
+#' @docType data
+#' @usage data(TDR_raw)
+#' @format A data frame with three columns
+#' @keywords datasets
+#' @references Lerma et al. 2021
+#' @examples
+#' data(TDR_raw)
+"TDR_raw"
+```
+
+---
+
+## 2.1. Documentar datos
+
+Una vez creado el archivo **.rda** y **.R** se puede revisar si funciono usando funciones del paquete **devtools**
+
+```r
+devtools::check()
+```
+
+Si los datos son muy pesados y te aparece un mensaje como este:
+
+```r
+Note: significantly better compression could be obtained
+          by using R CMD build --resave-data
+```
+
+Es mejor agregar el argumento compress.
+
+```r
+save(TDR_raw, file="TDR_raw.rda", compress = "xz")
+```
+
+---
+
+## 2.2. Instalar el paquete
+
+Si despues de usar **devtools::check()**, te aparece[]
+
+```r
+0 errors √ | 0 warnings √ | 0 notes √
+```
+Ya deberia funcionar 🥳.
+
+- Para instalar el paquete de manera local
+
+```r
+devtools::install("C:/....")
+```
+
+- Para instalar el paquete desde github
+
+```r
+devtools::install_github("Desarrollador/paquete")
+```
+
+---
+
+## 2.3. Ejemplo
+
+Mi paquete **spheniscus**
+
+```r
+devtools::install_github("MiriamLL/spheniscus")
+```
+
+Cargar paquete
+
+```r
+library(spheniscus)
+```
+
+Datos como objeto
+
+```r
+TDR_raw&lt;-TDR_raw
+```
+
+---
+name: funciones
+class: title-slide, center, middle
+background-image: url(https://images.unsplash.com/photo-1518289646039-3e6c87a5aaf6?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1351&amp;q=80)
+background-size: cover
+
+&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #000000 !important;font-size: 120px;" &gt;Funciones&lt;/span&gt;
+
+---
+
+# 3. Función con dependencia
+
+Muchos paquetes incluyen ademas de datos funciones.  
+Si aún no sabes como crear tu primera función puedes ir a [r4ds](https://r4ds-en-espaniol.netlify.app/funciones.html).  
+
+La estructura es algo así:
+
+```r
+nombre_de_la_funcion&lt;-function(argumentos){
+  algo_que_haga_la_funcion_usando(argumentos)
+  return(resultado)
+}
+```
+
+---
+
+## 3.1. Probar función
+
+Yo probe mi función con mis datos de ejemplo, antes de incluirla en el paquete.  
+
+1. Mi función requiere el paquete **tidyr** 
+
+
+2. Definí los argumentos por separado como objeto.
+
+```r
+data=TDR_raw
+row_start='Data Block 1'
+row_end='Data Block 2'
+```
+
+3. Corrí la funcion
+
+```r
+extract_pressure(data = TDR_raw, row_start='Data Block 1',row_end='Data Block 2')
+```
+
+Si funciona por lo que ahora la agregare a mi paquete.
+
+---
+
+## 3.2. Agregar función
+
+Para agregar la función al paquete
+
+```r
+usethis::use_r("extract_pressure")
+```
+
+*Abre un nuevo Rscript*
+Pegue allí la función
+
+Me apareció
+
+```r
+ Modify 'R/extract_pressure.R'
+ Call `use_test()` to create a matching test file
+```
+Ahora en mi carpeta **R** dentro del paquete aparece la función.  
+
+**Nota** te sugiere que uses use_test pero yo no hice este paso porque entra en conflicto con el siguiente.
+Si le diste use_test igual puedes usar rm() más adeltante.
+
+---
+
+## 3.3. Probar funcion
+
+Para poner la función en la memoria local y confirmar que se ejecute hay que incluirla en el paquete y probarla.
+
+```r
+devtools::load_all()
+```
+
+---
+
+## 3.4. Documentar la función
+
+Para documentar la función hay que crear un Roxigen skeleton.  
+Para esto tienes que poner el cursor justo en la primera linea de la función.  
+Te vas a la pestaña de Code&gt;Insert Reoxygen Skeleton (tambíen funciona con Control+Alt+Shift+R).  
+
+Va a aparecer algo así:
+
+```r
+#' Title
+#'
+#' @param data 
+#' @param row_start 
+#' @param row_end 
+#'
+#' @return
+#' @export
+#'
+#' @examples
+```
+**Nota** que identifica de manera automática las variables de la función
+
+---
+
+## 3.4. Documentar la funcion
+
+En mi caso aproveche y rellene todo en ingles y español.  
+Aunque creo que quedo pesado para leerse.  
+
+
+```r
+#' Extracts pressure data from raw time and depth data/Extrae data de presion desde dispositivos TDR
+#'
+#' @param data is the raw data as imported from your device/son los datos crudos descargados de tu dispositivo
+#' @param row_start is the name of the row where the pressure data starts to be recorded/es la nombre de la fila donde empieza a tomar los datos de presion
+#' @param row_end is the name of the row where the pressure data finishes to be recorded/es la nombre de la fila donde termina de tomar los datos de presion
+#'
+#' @return it will return a object named TDR_pressure/agrega un objeto llamado TDR_pressure al environment
+#' @export
+#'
+#' @examples cut_rawdata(data=TDR_raw, row_start='Data Block 1', row_end = 'Data Block 2')
+```
+
+---
+
+## 3.5. Agregar la función 
+
+Ahora, que ya esta la función y la documentación para agregar el paquete hay que escribir en la consola:
+
+```r
+devtools::document()
+```
+
+Aparece:
+
+```r
+Writing NAMESPACE
+Writing extract_pressure.Rd
+```
+
+Ahora si abres tu carpeta que dice **man** te aparece un documento rellenado.  
+**man** viene de manual y esta es la documentación del paquete.  
+**Nota** No debe ser editado de manera manual.  
+
+Ya puedes revisar tu documentación!
+
+```r
+?cut_rawdata
+```
+
+---
+
+## 3.6. Dependencias
+
+Dependencias hasta donde entendí, son paquetes que necesitas cargar para que tu función, funcione.
+
+Para revisar las dependencias puedes usar: 
+
+```r
+devtools::check()
+```
+Si tu paquete tiene dependencias, apareceran errores, warnings y notas.  
+
+Por ejemplo mi paquete tiene: 
+- un **%&gt;% (pipe)** del paquete **magrittr**, y 
+- usa la función **separate** que es del paquete **tidyr**.
+
+---
+
+## 3.7 Agregar dependencias
+
+Para agregar las dependencias puedes escribir el nombre de los paquetes dentro de la funcion **use_package**
+
+```r
+usethis::use_package("dplyr")
+```
+
+A mi me aparecio:
+
+```r
+√ Adding 'dplyr' to Imports field in DESCRIPTION
+ Refer to functions with `dplyr::fun()`
+```
+
+Ahora en DESCRIPTION me aparece
+
+```r
+Imports: 
+    dplyr
+```
+
+Lo siguiente es especificar el paquete en la función, tal como recomienda el siguiente mensaje.  
+
+```r
+ Refer to functions with `dplyr::fun()`
+```
+
+
+---
+
+## 3.7 Agregar pipe
+
+La función **pipe (%&gt;%)** del paquete magrittr es especial.  
+
+Por lo que hay que usar:
+
+```r
+usethis::use_pipe()
+```
+
+Me apareció: 
+
+```r
+√ Adding 'magrittr' to Imports field in DESCRIPTION
+√ Writing 'R/utils-pipe.R'
+ Run `devtools::document()` to update 'NAMESPACE'
+```
+
+Y después revise el paquete:  
+
+```r
+devtools::document()
+```
+
+Ahora debe aparecer en R un script llamado **utils-pipe.R** y  
+en la DESCRIPTION debe aparecer **Imports magrittr**
+
+---
+
+## 3.7 Revisar dependencias
+
+Revisar si todo funciono.  
+
+```r
+devtools::check()
+```
+
+Aun aparece una nota.  
+
+```r
+0 errors √ | 0 warnings √ | 1 note x
+```
+
+En mi función original tenia assign a GlobalEnv.  
+Esto no es recomendado en paquetes.  
+Lo siguiente que hice fue corregir a return().
+
+Antes:  
+
+```r
+  Found the following assignments to the global environment:
+  File 'spheniscus/R/cut_rawdata.R':
+    assign("TDR_pressure", TDR_pressure, envir = .GlobalEnv)
+```
+
+Después:  
+
+```r
+return(TDR_pressure)
+```
+
+Volver a checar
+
+```r
+devtools::check()
+```
+
+---
+name: segunda
+
+# 4. Función sin dependencias
+
+Cree una segunda funcion con datos de GPS.  
+
+
+
+
+
+
+No obstante para esta función requiere que tengas una columna que se llame tStamp.  
+Para lo que estoy trabajando eso es normal, pero si no deberas crearla.  
+**Mi proposito** es agregar if else y usar corchetes para las variables.  
+
+```r
+extract_trip&lt;-function(data=data,
+                   timeformat=timeformat,
+                   trip_start=row_start,
+                   trip_end=row_end){
+  data$daytime&lt;- as.POSIXct(strptime(as.character(data$tStamp), 
+                                    timeformat), "GMT")
+  trip_start&lt;-as.POSIXct(strptime(trip_start, timeformat), 'GMT')
+  trip_end&lt;-as.POSIXct(strptime(trip_end, timeformat), 'GMT')
+  TDR_no_start&lt;-subset(data, data$daytime&gt;=trip_start)
+  TDR_no_end &lt;- subset(TDR_no_start, TDR_no_start$daytime&lt;= trip_end)
+  TDR_trip&lt;-TDR_no_end  
+  return(TDR_trip)
+}
+```
+
+
+
+---
+
+## 4.1. Agregar función
+
+Para agregar la función al paquete
+
+```r
+usethis::use_r("extract_trip")
+```
+
+*Abre un nuevo Rscript*
+Pegue allí la función
+
+Me apareció: 
+
+```r
+√ Setting active project to 'C:/Users/Lerma/Documents/5Proyectos/2Paquetes/spheniscus/spheniscus'
+ Modify 'R/extract_trip.R'
+ Call `use_test()` to create a matching test file
+```
+
+Ahora en mi carpeta R tengo dentro la función
+
+
+---
+
+## 4.2. Documentar la funcion
+
+Para esta parte hay que crear un Roxigen skeleton.
+Para esto tienes que poner el cursor justo en la primera linea de la función.  
+Y te vas a la pestaña de Code&gt;Insert Reoxygen Skeleton (tambien funciona con Control+Alt+Shift+R).  
+
+Va a aparecer algo asi:
+
+```r
+#' Title
+#'
+#' @param data 
+#' @param trip_start 
+#' @param trip_end 
+#'
+#' @return
+#' @export
+#'
+#' @examples
+```
+
+
+---
+
+## 4.3. Agregar la función
+
+Para agregar la función al paquete:  
+Escribir en la consola
+
+```r
+devtools::document()
+```
+
+Aparece:
+
+```r
+Writing NAMESPACE
+Writing extract_trip.Rd
+```
+
+Ahora si abres tu carpeta que dice man te aparece un documento rellenado.
+man viene de manual y esta es la documentación del paquete. No debe ser editado de manera manual.
+
+Ya puedes revisar tu documentación!
+
+```r
+?extract_trip
+```
+
+```
+## No documentation for 'extract_trip' in specified packages and libraries:
+## you could try '??extract_trip'
+```
+
+---
+
+## 4.5. Dependencias
+
+Esta función no tiene nuevas dependencias, asi que no tuve que agregarlas.  
+
+Revisar el paquete:
+
+```r
+devtools::check()
+```
+
+*Problemas*: El ejemplo tiene mas de 100 characteres, es muy largo!.  
+
+```r
+Rd file 'cut_trip.Rd':
+    \examples lines wider than 100 characters:
+       TDR_trip&lt;-cut_trip(data=TDR_pressure,timeformat="%d-%m-%Y %H:%M:%S",trip_start="30-11-2018 20:43:24",trip_end="01-12-2018 20:16:19")
+```
+
+**Solución** Separar en la documentación
+
+```r
+#' t_format&lt;-"%d-%m-%Y %H:%M:%S"
+#' t_start&lt;-"30-11-2018 20:43:24"
+#' t_end&lt;-"01-12-2018 20:16:19"
+#' TDR_trip&lt;-cut_trip(data=TDR_pressure,timeformat=t_format,trip_start=t_start,trip_end=t_end)
+```
+
+**Resuelto**
+
+```r
+0 errors √ | 0 warnings √ | 0 notes √
+```
+
+---
+
+name: sticker
+
+# Sticker
+
+---
+
+## 5.1. Crear tu propio sticker
+
+- En powerpoint [Plantilla](https://emitanaka.org/posts/hexsticker/) &lt;br&gt;
+- En R [Paquete](https://github.com/GuangchuangYu/hexSticker)
+
+---
+
+class: inverse
+
+# Recapitulando
+
+- [Que es un paquete](#intro)  
+- [Como agregar datos](#datos)
+- [Como crear funcion](#funciones)
+- [Como crear hexsticker](#sticker)
+
+.right[
+### Contacto
+
+Para dudas, comentarios y sugerencias:&lt;br&gt;
+ Escríbeme a miriamjlerma@gmail.com
+
+Este material esta accesible y se encuentra en &lt;br&gt;
+ mi [&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#4cc9f0;" viewBox="0 0 576 512"&gt;&lt;path d="M576 24v127.984c0 21.461-25.96 31.98-40.971 16.971l-35.707-35.709-243.523 243.523c-9.373 9.373-24.568 9.373-33.941 0l-22.627-22.627c-9.373-9.373-9.373-24.569 0-33.941L442.756 76.676l-35.703-35.705C391.982 25.9 402.656 0 424.024 0H552c13.255 0 24 10.745 24 24zM407.029 270.794l-16 16A23.999 23.999 0 0 0 384 303.765V448H64V128h264a24.003 24.003 0 0 0 16.97-7.029l16-16C376.089 89.851 365.381 64 344 64H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V287.764c0-21.382-25.852-32.09-40.971-16.97z"/&gt;&lt;/svg&gt;github](https://github.com/MiriamLL/Curso_CIAD/)
+y mi [&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#4cc9f0;" viewBox="0 0 576 512"&gt;&lt;path d="M576 24v127.984c0 21.461-25.96 31.98-40.971 16.971l-35.707-35.709-243.523 243.523c-9.373 9.373-24.568 9.373-33.941 0l-22.627-22.627c-9.373-9.373-9.373-24.569 0-33.941L442.756 76.676l-35.703-35.705C391.982 25.9 402.656 0 424.024 0H552c13.255 0 24 10.745 24 24zM407.029 270.794l-16 16A23.999 23.999 0 0 0 384 303.765V448H64V128h264a24.003 24.003 0 0 0 16.97-7.029l16-16C376.089 89.851 365.381 64 344 64H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V287.764c0-21.382-25.852-32.09-40.971-16.97z"/&gt;&lt;/svg&gt;página www.miriam-lerma.com](https://miriamlerma.netlify.app/materiales.html) 
+]
+
+&lt;h1&gt;
+.center[
+[&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#4cc9f0;" viewBox="0 0 576 512"&gt;&lt;path d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"/&gt;&lt;/svg&gt;](https://miriamlerma.netlify.app/materiales.html)
+]&lt;/h1&gt;
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
