@@ -123,18 +123,17 @@ library(usethis)
 
 ## 1.2. Checa nombre
 
-Antes de iniciar tu paquete, puedes consultar el nombre que le daras en la pagina [CRAN](https://cran.r-project.org/)
+Antes de iniciar tu paquete, puedes consultar el nombre en la página [CRAN](https://cran.r-project.org/)
 
-Para ayudarte, existe la libreria **available** para revisar si tu paquete ya existe en CRAN o en github y si el nombre de tu paquete puede ser ofensivo.
+Para ayudarte, existe el paquete **available** para revisar si tu paquete ya existe en CRAN o en github y si el nombre de tu paquete puede ser ofensivo.
 ```{r, eval=FALSE}
 install.packages('available')
 library(available)
-available("El nombre de tu paquete")
+available("nombre_paquete")
 ```
 
 Ejemplo con mi paquete:
 ```{r, eval=FALSE}
-library(available)
 available("spheniscus")
 ```
 Una vez le des enter, te pregunta si quieres que revise por contenido ofensivo, puedes poner **Y**.
@@ -188,7 +187,7 @@ RoxygenNote: 7.1.1
 Creo los archivos:
 - .gitignore
 - .Rbuildignore
-- DESCRIPTIOn
+- DESCRIPTION
 - NAMESPACE
 - README.md
 
@@ -227,9 +226,7 @@ Me abrio el proyecto en otra ventana.
 
 ## 1.2. Git
 
-Si ya tienes instalado git puedes directamente conectar el paquete con tu repositorio.
-
-Primero puedes escribir en tu consola:
+Si ya tienes instalado git puedes directamente conectar el paquete con tu repositorio, escribiendo en tu consola:
 ```{r, eval=FALSE}
 usethis::use_git()
 ```
@@ -260,7 +257,7 @@ Me aparecio
 ```{r, eval=FALSE}
 √ Adding files
 √ Making a commit with message 'Initial commit
-* A restart of RStudio is required to activate the Git pane
+ A restart of RStudio is required to activate the Git pane
 Restart now?
 1: Yup
 2: No
@@ -269,18 +266,18 @@ Restart now?
 
 Yo le dije 1: Yup... que es como decir **sipi**
 
-Y se reinicio la sesion
+Y se reinició la sesion
 
 ---
 
 ## 1.3. Github
 
-Otra vez en la consola escribi
+Otra vez en la consola escribí
 ```{r, eval=FALSE}
 usethis::use_github()
 ```
 
-Me aparecio
+Me apareció
 ```{r, eval=FALSE}
 i Defaulting to https Git protocol
 √ Setting active project to 'C:/Users/Lerma/Documents/spheniscus'
@@ -302,26 +299,26 @@ Le di 3: I agree
 
 ## 1.4. Github
 
-Me aparecio
+Me apareció
 ```{r, eval=FALSE}
 √ Adding files
 √ Making a commit with message 'Add GitHub links to DESCRIPTION'
 √ Pushing 'master' branch to GitHub and setting 'origin/master' as upstream branch
 √ Opening URL 'https://github.com/...'
 ```
-Y me abrio github
+Y me abrió github
 
 ---
 
 ## 1.4. devtools
 
-Escribi en la consola
+Escribí en la consola
 ```{r, eval=FALSE}
 devtools::check()
 ```
 
-Y checo la version, plataforma, sesiones y demas.   
-Tardo un poquito.  
+Y reviso la versión, plataforma, sesiones y demás.   
+Tardo un poquito.  ⏳
 
 ```{r, eval=FALSE}
 0 errors √ | 1 warning x | 0 notes √
@@ -340,12 +337,12 @@ Non-standard license specification:
 
 ## 1.5. Licencia
 
-Para sofware la licencia mas comun es **MIT**
+Para sofware la licencia más común es **MIT**
 ```{r, eval=FALSE}
 usethis::use_mit_license("Mi Nombre")
 ```
 
-Me aparecio esto:
+Me apareció esto:
 ```{r, eval=FALSE}
 √ Setting License field in DESCRIPTION to 'MIT + file LICENSE'
 √ Writing 'LICENSE'
@@ -353,7 +350,7 @@ Me aparecio esto:
 √ Adding '^LICENSE\\.md$' to '.Rbuildignore'
 ```
 
-Para revisar si funciono
+Para revisar si funcionó
 ```{r, eval=FALSE}
 devtools::check()
 ```
@@ -368,7 +365,8 @@ Tarda un poquito
 
 ## 1.6. metadata
 
-Abre y modifica el documento que dice DESCRIPTION, agregando tus datos
+Abre y modifica el documento que dice DESCRIPTION, agregando tus datos.  
+Esta es la información de contacto si hay problemas con el paquete.  
 ```{r, eval=FALSE}
 Authors@R:
   person(given = "Miriam",
@@ -377,8 +375,6 @@ Authors@R:
          email = "miriamjlerma@gmail.com",
          comment = c(ORCID = "0000-0002-7632-9289"))
 ```
-
-Esta la información de contacto y de autor o creador.
 
 ---
 
@@ -466,7 +462,7 @@ En mi caso yo le di al script el mismo nombre que a los datos (TDR_raw).
 
 ## 2.1. Documentar datos
 
-Una vez creado el archivo **.rda** y **.R** se puede revisar si funciono usando funciones del paquete **devtools**
+Una vez creado el archivo **.rda** y **.R** se puede revisar si funcionó usando funciones del paquete **devtools**
 ```{r, eval=FALSE}
 devtools::check()
 ```
@@ -533,7 +529,8 @@ background-size: cover
 
 # 3. Función con dependencia
 
-Muchos paquetes incluyen ademas de datos funciones.  
+Para este paso deberías tener alguna función en mente.  
+
 Si aún no sabes como crear tu primera función puedes ir a [r4ds](https://r4ds-en-espaniol.netlify.app/funciones.html).  
 
 La estructura es algo así:
@@ -548,7 +545,7 @@ nombre_de_la_funcion<-function(argumentos){
 
 ## 3.1. Probar función
 
-Yo probe mi función con mis datos de ejemplo, antes de incluirla en el paquete.  
+Yo probé mi función con mis datos de ejemplo, antes de incluirla en el paquete.  
 
 1. Mi función requiere el paquete **tidyr** 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
@@ -578,7 +575,7 @@ Para agregar la función al paquete
 usethis::use_r("extract_pressure")
 ```
 
-*Abre un nuevo Rscript*
+**Abre un nuevo Rscript**  
 Pegue allí la función
 
 Me apareció
@@ -587,7 +584,8 @@ Me apareció
  Call `use_test()` to create a matching test file
 ```
 Ahora en mi carpeta **R** dentro del paquete aparece la función.  
-
+  
+  
 **Nota** te sugiere que uses use_test pero yo no hice este paso porque entra en conflicto con el siguiente.
 Si le diste use_test igual puedes usar rm() más adeltante.
 
@@ -634,13 +632,13 @@ Aunque creo que quedo pesado para leerse.
 #' Extracts pressure data from raw time and depth data/Extrae data de presion desde dispositivos TDR
 #'
 #' @param data is the raw data as imported from your device/son los datos crudos descargados de tu dispositivo
-#' @param row_start is the name of the row where the pressure data starts to be recorded/es la nombre de la fila donde empieza a tomar los datos de presion
-#' @param row_end is the name of the row where the pressure data finishes to be recorded/es la nombre de la fila donde termina de tomar los datos de presion
+#' @param row_start is the name of the row where the pressure data starts to be recorded/es el nombre de la fila donde empieza a tomar los datos de presion
+#' @param row_end is the name of the row where the pressure data finishes to be recorded/es el nombre de la fila donde termina de tomar los datos de presion
 #'
-#' @return it will return a object named TDR_pressure/agrega un objeto llamado TDR_pressure al environment
+#' @return it will return a object/te regresa un objeto
 #' @export
 #'
-#' @examples cut_rawdata(data=TDR_raw, row_start='Data Block 1', row_end = 'Data Block 2')
+#' @examples TDR_pressure<-extract_pressure(data=TDR_raw, row_start='Data Block 1', row_end = 'Data Block 2')
 ```
 
 ---
@@ -664,7 +662,7 @@ Ahora si abres tu carpeta que dice **man** te aparece un documento rellenado.
 
 Ya puedes revisar tu documentación!
 ```{r, eval=FALSE}
-?cut_rawdata
+?extract_pressure
 ```
 
 ---
@@ -681,7 +679,7 @@ Si tu paquete tiene dependencias, apareceran errores, warnings y notas.
 
 Por ejemplo mi paquete tiene: 
 - un **%>% (pipe)** del paquete **magrittr**, y 
-- usa la función **separate** que es del paquete **tidyr**.
+- usa la función **separate** que es del paquete **dplyr**.
 
 ---
 
@@ -776,7 +774,7 @@ name: segunda
 
 # 4. Función sin dependencias
 
-Cree una segunda funcion con datos de GPS.  
+Cree una segunda función con datos de GPS.  
 ```{r, eval=FALSE, echo=FALSE}
 library(spheniscus)
 ```
@@ -793,14 +791,12 @@ trip_start="30-11-2018 20:43:24"
 trip_end="01-12-2018 20:16:19"
 ```
 
-No obstante para esta función requiere que tengas una columna que se llame tStamp.  
-Para lo que estoy trabajando eso es normal, pero si no deberas crearla.  
-**Mi proposito** es agregar if else y usar corchetes para las variables.  
+No obstante para esta función requiere que tengas una columna que se llame tStamp (y aun no decido si eso es muy relevante para los demás).  
 ```{r}
 extract_trip<-function(data=data,
-                   timeformat=timeformat,
-                   trip_start=row_start,
-                   trip_end=row_end){
+                   timeformat=t_format,
+                   trip_start=t_start,
+                   trip_end=t_end){
   data$daytime<- as.POSIXct(strptime(as.character(data$tStamp), 
                                     timeformat), "GMT")
   trip_start<-as.POSIXct(strptime(trip_start, timeformat), 'GMT')
@@ -814,9 +810,9 @@ extract_trip<-function(data=data,
 
 ```{r, eval=FALSE, echo=FALSE}
 TDR_trip<-extract_trip(data=TDR_pressure,
-                   timeformat="%d-%m-%Y %H:%M:%S",
-                   trip_start="30-11-2018 20:43:24",
-                   trip_end="01-12-2018 20:16:19")
+                   t_format="%d-%m-%Y %H:%M:%S",
+                   t_start="30-11-2018 20:43:24",
+                   t_end="01-12-2018 20:16:19")
 ```
 
 ---
@@ -828,12 +824,12 @@ Para agregar la función al paquete
 usethis::use_r("extract_trip")
 ```
 
-*Abre un nuevo Rscript*
+**Abre un nuevo script**  
 Pegue allí la función
 
 Me apareció: 
 ```{r, eval=FALSE}
-√ Setting active project to 'C:/Users/Lerma/Documents/5Proyectos/2Paquetes/spheniscus/spheniscus'
+√ Setting active project to 'C:/...'
  Modify 'R/extract_trip.R'
  Call `use_test()` to create a matching test file
 ```
@@ -845,11 +841,11 @@ Ahora en mi carpeta R tengo dentro la función
 
 ## 4.2. Documentar la funcion
 
-Para esta parte hay que crear un Roxigen skeleton.
-Para esto tienes que poner el cursor justo en la primera linea de la función.  
-Y te vas a la pestaña de Code>Insert Reoxygen Skeleton (tambien funciona con Control+Alt+Shift+R).  
+Agregue un Roxigen skeleton.  
+Poniendo el cursor justo en la primera linea de la función. 
+Abriendo la pestaña de Code>Insert Reoxygen Skeleton (también funciona con Control+Alt+Shift+R).  
 
-Va a aparecer algo asi:
+Va a aparecer algo así:
 ```{r, eval=FALSE}
 #' Title
 #'
@@ -884,7 +880,7 @@ Ahora si abres tu carpeta que dice man te aparece un documento rellenado.
 man viene de manual y esta es la documentación del paquete. No debe ser editado de manera manual.
 
 Ya puedes revisar tu documentación!
-```{r}
+```{r, eval=FALSE}
 ?extract_trip
 ```
 
@@ -892,16 +888,16 @@ Ya puedes revisar tu documentación!
 
 ## 4.5. Dependencias
 
-Esta función no tiene nuevas dependencias, asi que no tuve que agregarlas.  
+Esta función no tiene nuevas dependencias, así que no tuve que agregarlas.  
 
 Revisar el paquete:
 ```{r, eval=FALSE}
 devtools::check()
 ```
 
-*Problemas*: El ejemplo tiene mas de 100 characteres, es muy largo!.  
+Pero... **problemas**:  
+El ejemplo tiene mas de 100 characteres, es muy largo!.  
 ```{r, eval=FALSE}
-Rd file 'cut_trip.Rd':
     \examples lines wider than 100 characters:
        TDR_trip<-cut_trip(data=TDR_pressure,timeformat="%d-%m-%Y %H:%M:%S",trip_start="30-11-2018 20:43:24",trip_end="01-12-2018 20:16:19")
 ```
@@ -921,16 +917,25 @@ Rd file 'cut_trip.Rd':
 
 ---
 
-name: sticker
+name: datos
+class: title-slide, center, middle
+background-image: url(https://images.unsplash.com/photo-1518289646039-3e6c87a5aaf6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1351&q=80)
+background-size: cover
 
-# Sticker
+`r text_spec("Stickers", background = "#000000", color = "white", bold = T, font_size=120)`
 
 ---
 
-## 5.1. Crear tu propio sticker
+## 5.0. Crear tu propio sticker
 
-- En powerpoint [Plantilla](https://emitanaka.org/posts/hexsticker/) <br>
-- En R [Paquete](https://github.com/GuangchuangYu/hexSticker)
+- En powerpoint [plantilla hecha por Emi Tanaka](https://emitanaka.org/posts/hexsticker/) <br>
+- En R [paquete hexSticker hecho por GuangchuangYu](https://github.com/GuangchuangYu/hexSticker)
+
+Para instalar:  
+```{r, eval=FALSE}
+install.packages("hexSticker")
+```
+
 
 ---
 
@@ -949,13 +954,17 @@ class: inverse
 Para dudas, comentarios y sugerencias:<br>
  Escríbeme a miriamjlerma@gmail.com
 
-Este material esta accesible y se encuentra en <br>
+Este material esta accesible 
+y se encuentra en <br>
  mi [`r fa("external-link-alt", fill = ColorEnlaceInverso)`github](https://github.com/MiriamLL/Curso_CIAD/)
-y mi [`r fa("external-link-alt", fill = ColorEnlaceInverso)`página www.miriam-lerma.com](https://miriamlerma.netlify.app/materiales.html) 
 ]
 
+```{r, echo=FALSE, eval=FALSE}
 <h1>
 .center[
 [`r fa("home", fill = ColorEnlaceInverso)`](https://miriamlerma.netlify.app/materiales.html)
 ]</h1>
+```
+
+
 
