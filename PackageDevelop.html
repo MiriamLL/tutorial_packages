@@ -96,20 +96,16 @@ background-size: cover
 
 
 
-**Motivantes personales**  
-Quiero hacer las funciones y documentacion accesibles en ingles y español.  
-
-
-No es importante para mi que esten en CRAN.  Por eso no tocare el tema de CRAN.   
+- Quiero hacer las funciones y documentación accesibles en ingles y español.  
 
 ---
 
 ## 1.2. Crear paquete
 
-**Paquete**
+**Paquete**  
 Para crear paquetes yo use el paquete **usethis**
 
-Para instalar y cargar la librería:
+Para instalar y cargar el paquete:
 
 ```r
 #install.packages('usethis')
@@ -122,10 +118,10 @@ library(usethis)
 
 Antes de iniciar tu paquete, puedes consultar el nombre que le daras en la pagina [CRAN](https://cran.r-project.org/)
 
-Tambien existe la libreria **available** para revisar si tu paquete ya existe en CRAN o en github y si el nombre de tu paquete puede ser ofensivo.
+Para ayudarte, existe la libreria **available** para revisar si tu paquete ya existe en CRAN o en github y si el nombre de tu paquete puede ser ofensivo.
 
 ```r
-#install.packages('available')
+install.packages('available')
 library(available)
 available("El nombre de tu paquete")
 ```
@@ -136,23 +132,23 @@ Ejemplo con mi paquete:
 library(available)
 available("spheniscus")
 ```
-Una vez le des enter, te pregunta si quieres que revise por contenido ofensivo, puedes poner **Y** si quieres que revise.
+Una vez le des enter, te pregunta si quieres que revise por contenido ofensivo, puedes poner **Y**.
 
 ```r
 Urban Dictionary can contain potentially offensive results,
   should they be included? [Y]es / [N]o:
 ```
-Despues te abre las paginas para mostrarte que significa el nombre de tu paquete.
+Después te abre las paginas para mostrarte que significa el nombre de tu paquete.
 
 ---
 
 ## 1.3. Crear
 
-Para crear un paquete la funcion **create_package** crea el **esqueleto** de los paquetes.  &lt;br&gt;
+Para crear un paquete la función **create_package** crea el **esqueleto** de los paquetes.  &lt;br&gt;
 Dentro pon el nombre del paquete que te interesa.  
 
 ```r
-usethis::create_package("nombre del paquetes")
+usethis::create_package("nombre_paquete")
 ```
 
 Te debio aparecer algo asi:
