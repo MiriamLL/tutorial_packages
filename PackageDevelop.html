@@ -77,8 +77,7 @@ background-size: cover
 
 ## 1.1. Intro
 
-**Motivantes**
-
+**Problemas**
 - Repito pasos y análisis con datos similares...  
 .right[ _hasta ahora reciclo funciones de scripts anteriores_ ]
 
@@ -91,12 +90,11 @@ background-size: cover
 - Existen paquetes similares pero que no cubren con todos los pasos...   
 .right[  _uso partes de algunos paquetes y adapto a mi nuevo analisis_ ]
 
-- Quiero que otras personas puedan replicar mis análisis...   
-.right[ _quiero que las funciones esten accesibles_ ]
+**Motivantes**
 
+- Quiero que otras personas puedan replicar mis análisis y que las funciones esten accesibles.
 
-
-- Quiero hacer las funciones y documentación accesibles en ingles y español.  
+- Quiero hacer las funciones y documentación este en ingles y español.  
 
 ---
 
@@ -962,16 +960,59 @@ El ejemplo tiene mas de 100 characteres, es muy largo!.
 
 ---
 
-name: datos
+# 5. Ejercicios
+
+Crea tu propia funcion
+
+.panelset[
+.panel[.panel-name[Crear]
+
+```r
+usethis::use_r("nombre_funcion")
+```
+
+Insertar Roxigen Skeleton  (CTRL+ALT+SHIFT+R)
+]
+
+.panel[.panel-name[Documentar]
+
+```r
+devtools::document()
+```
+]
+
+.panel[.panel-name[Checar]
+
+```r
+devtools::check()
+```
+]
+
+.panel[.panel-name[Dependencias]
+
+```r
+usethis::use_package("ggplot2")
+```
+
+Referirse a funciones con ::
+]
+]
+
+
+
+
+
+---
+
+name: sticker
 class: title-slide, center, middle
 background-image: url(https://images.unsplash.com/photo-1518289646039-3e6c87a5aaf6?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1351&amp;q=80)
 background-size: cover
 
 &lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #000000 !important;font-size: 120px;" &gt;Stickers&lt;/span&gt;
 
----
 
-## 5.0. Crear tu propio sticker
+# 6. Crear tu propio sticker
 
 - En powerpoint [plantilla hecha por Emi Tanaka](https://emitanaka.org/posts/hexsticker/) &lt;br&gt;
 - En R [paquete hexSticker hecho por GuangchuangYu](https://github.com/GuangchuangYu/hexSticker)
