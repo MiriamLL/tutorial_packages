@@ -516,6 +516,39 @@ TDR_raw<-TDR_raw
 ```
 
 ---
+
+## 2.4. Ejercicios
+
+Agrega datos al paquete
+
+.panelset[
+.panel[.panel-name[Crear]
+```{r, eval=FALSE}
+save(TDR_raw, file="TDR_raw.rda")
+```
+]
+
+.panel[.panel-name[Documentar]
+
+```{r,eval=FALSE}
+usethis::use_r("TDR_raw")
+```
+
+Insertar Roxigen Skeleton  (CTRL+ALT+SHIFT+R) o copiar y pegar de otro archivo
+
+```{r, eval=FALSE}
+devtools::document()
+```
+]
+
+.panel[.panel-name[Checar]
+```{r, eval=FALSE}
+devtools::check()
+```
+]
+]
+
+---
 name: funciones
 class: title-slide, center, middle
 background-image: url(https://images.unsplash.com/photo-1518289646039-3e6c87a5aaf6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1351&q=80)
@@ -915,7 +948,52 @@ El ejemplo tiene mas de 100 characteres, es muy largo!.
 
 ---
 
-# 5. Ejercicios
+# 5. Funcion con ggplot
+
+Cuando creamos una funcion con ggplot hay que agregar en varias partes ggplot2::
+```{r, eval=FALSE}
+devtools::check()
+```
+
+Si no aparecera un error.
+```{r, eval=FALSE}
+1 error x | 0 warnings √ | 1 note x
+```
+
+Debido a que no detecta la funcion aes
+```{r, eval=FALSE}
+plot_depth: no visible global function definition for 'aes'
+```
+
+[ggplot en paquetes](https://ggplot2.tidyverse.org/articles/ggplot2-in-packages.html)
+
+---
+
+## 5.1. Funcion con ggplot
+
+```{r, eval=FALSE}
+checking R code for possible problems ...
+```
+
+
+Tambien tiene problemas con las variables
+```{r, eval=FALSE}
+plot_depth: no visible binding for global variable '.TDR_trip'
+```
+
+Por lo que hay que usar .data
+```{r, eval=FALSE}
+ggplot2::ggplot(data,
+                ggplot2::aes(x=.data[[depth_column]],
+                             y=.data[[time_column]]))+
+    ggplot2::geom_line()
+```
+
+
+
+---
+
+# 6. Ejercicios
 
 Crea tu propia funcion
 
@@ -963,7 +1041,7 @@ background-size: cover
 `r text_spec("Stickers", background = "#000000", color = "white", bold = T, font_size=120)`
 
 
-# 6. Crear tu propio sticker
+# 7. Crear tu propio sticker
 
 - En powerpoint [plantilla hecha por Emi Tanaka](https://emitanaka.org/posts/hexsticker/) <br>
 - En R [paquete hexSticker hecho por GuangchuangYu](https://github.com/GuangchuangYu/hexSticker)
