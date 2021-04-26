@@ -1028,7 +1028,6 @@ plot_depth: no visible global function definition for 'aes'
 checking R code for possible problems ...
 ```
 
-
 Tambien tiene problemas con las variables
 
 ```r
@@ -1045,10 +1044,44 @@ ggplot2::ggplot(data,
 ```
 
 
+---
+
+# 6. Funcion con stats
+
+
+```r
+sd_depth&lt;-dplyr::aggregate(TDR_dives[,depth_column],list(TDR_dives$dives), stats::sd)
+```
+
+Este es un paquete que no esta declarado en Rstudio pero hay que ponerlo en las dependencias.
+
+
+```r
+usethis::use_package("stats")
+```
 
 ---
 
-# 6. Ejercicios
+# 7. gitignore
+
+gitignore(https://cran.r-project.org/web/packages/gitignore/vignettes/introduction.html)
+
+Si borras una funcion, primero te da informacion de la actualizacion
+
+```r
+devtools::document()
+Objects listed as exports, but not present in namespace:
+```
+
+Luego ya esta actualizado
+
+```r
+devtools::document()
+```
+
+---
+
+# 8. Ejercicios
 
 Crea tu propia funcion
 
@@ -1087,9 +1120,6 @@ Referirse a funciones con ::
 ]
 
 
-
-
-
 ---
 
 name: sticker
@@ -1100,7 +1130,9 @@ background-size: cover
 &lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #000000 !important;font-size: 120px;" &gt;Stickers&lt;/span&gt;
 
 
-# 7. Crear tu propio sticker
+---
+
+# 9. Crear tu propio sticker
 
 - En powerpoint [plantilla hecha por Emi Tanaka](https://emitanaka.org/posts/hexsticker/) &lt;br&gt;
 - En R [paquete hexSticker hecho por GuangchuangYu](https://github.com/GuangchuangYu/hexSticker)
