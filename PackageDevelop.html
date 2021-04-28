@@ -496,6 +496,32 @@ En mi caso yo le di al script el mismo nombre que a los datos.
 
 ## 2.1. Documentar datos
 
+Para documentar tus datos, puedes abrir un nuevo script (File&gt;NewFile&gt;R Script) o usar la función del paquete **usethis**.
+
+```r
+usethis::use_data("mis_datos")
+```
+
+Esta función agrega comentarios Roxigen y guarda el documento en tu folder llamado **R**. &lt;br&gt;
+En mi caso yo le di al script el mismo nombre que a los datos. 
+
+```r
+#' Mis datos son datos de...
+#' Contiene 264197 obs de 1 variable.
+#' @docType data
+#' @usage data(mis_datos)
+#' @format Un data frame con 1 variable
+#' @keywords datasets
+#' @references Lerma et al. 2021
+#' @examples
+#' data(mis_datos)
+"mis_datos"
+```
+
+---
+
+## 2.1. Documentar datos
+
 Una vez creado el archivo **.rda** y **.R** se puede revisar si funcionó usando funciones del paquete **devtools**
 
 ```r
