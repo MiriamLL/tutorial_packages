@@ -32,17 +32,20 @@ background-size: cover
 &lt;br&gt;
 &lt;h2&gt;&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #000000 !important;" &gt;Miriam Lerma&lt;/span&gt;&lt;/h2&gt;
 
-&lt;h3&gt;&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #000000 !important;" &gt;Abril 2021&lt;/span&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #000000 !important;" &gt;Mayo 2021&lt;/span&gt;&lt;/h3&gt;
 
 
 ---
 class: inverse
 
-# Intro
+# Indice
 
 - [Que es un paquete](#intro)  
+- [Licencia](#licencia)  
 - [Como agregar datos](#datos)
+- [Agregar datos al paquete](#datos_ex) 
 - [Como crear función](#funciones)
+- [Crear función](#funciones_ex)
 - [Como crear hexsticker](#sticker)
 
 
@@ -55,15 +58,24 @@ class: inverse
 
 # Créditos y recursos
 
+- Paquetes  
+[&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#4cc9f0;" viewBox="0 0 640 512"&gt;&lt;path d="M0 256v128c0 17.7 14.3 32 32 32h32V224H32c-17.7 0-32 14.3-32 32zM464 96H352V32c0-17.7-14.3-32-32-32s-32 14.3-32 32v64H176c-44.2 0-80 35.8-80 80v272c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V176c0-44.2-35.8-80-80-80zM256 416h-64v-32h64v32zm-32-120c-22.1 0-40-17.9-40-40s17.9-40 40-40 40 17.9 40 40-17.9 40-40 40zm128 120h-64v-32h64v32zm96 0h-64v-32h64v32zm-32-120c-22.1 0-40-17.9-40-40s17.9-40 40-40 40 17.9 40 40-17.9 40-40 40zm192-72h-32v192h32c17.7 0 32-14.3 32-32V256c0-17.7-14.3-32-32-32z"/&gt;&lt;/svg&gt; usethis](https://usethis.r-lib.org/)  
+[&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#4cc9f0;" viewBox="0 0 640 512"&gt;&lt;path d="M0 256v128c0 17.7 14.3 32 32 32h32V224H32c-17.7 0-32 14.3-32 32zM464 96H352V32c0-17.7-14.3-32-32-32s-32 14.3-32 32v64H176c-44.2 0-80 35.8-80 80v272c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V176c0-44.2-35.8-80-80-80zM256 416h-64v-32h64v32zm-32-120c-22.1 0-40-17.9-40-40s17.9-40 40-40 40 17.9 40 40-17.9 40-40 40zm128 120h-64v-32h64v32zm96 0h-64v-32h64v32zm-32-120c-22.1 0-40-17.9-40-40s17.9-40 40-40 40 17.9 40 40-17.9 40-40 40zm192-72h-32v192h32c17.7 0 32-14.3 32-32V256c0-17.7-14.3-32-32-32z"/&gt;&lt;/svg&gt; testthat](https://testthat.r-lib.org/)
+
 - Libros&lt;br&gt;
-[R Packages](https://r-pkgs.org/intro.html)
+[&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#4cc9f0;" viewBox="0 0 576 512"&gt;&lt;path d="M542.22 32.05c-54.8 3.11-163.72 14.43-230.96 55.59-4.64 2.84-7.27 7.89-7.27 13.17v363.87c0 11.55 12.63 18.85 23.28 13.49 69.18-34.82 169.23-44.32 218.7-46.92 16.89-.89 30.02-14.43 30.02-30.66V62.75c.01-17.71-15.35-31.74-33.77-30.7zM264.73 87.64C197.5 46.48 88.58 35.17 33.78 32.05 15.36 31.01 0 45.04 0 62.75V400.6c0 16.24 13.13 29.78 30.02 30.66 49.49 2.6 149.59 12.11 218.77 46.95 10.62 5.35 23.21-1.94 23.21-13.46V100.63c0-5.29-2.62-10.14-7.27-12.99z"/&gt;&lt;/svg&gt; R Packages](https://r-pkgs.org/intro.html)
 
-- Datos &lt;br&gt;
-[Incluir datos](https://r-pkgs.org/man.html) &lt;br&gt;
-[Documentar datos](https://kbroman.org/pkg_primer/pages/data.html) &lt;br&gt;
+- Tutoriales sobre datos &lt;br&gt;
+[&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#4cc9f0;" viewBox="0 0 576 512"&gt;&lt;path d="M576 24v127.984c0 21.461-25.96 31.98-40.971 16.971l-35.707-35.709-243.523 243.523c-9.373 9.373-24.568 9.373-33.941 0l-22.627-22.627c-9.373-9.373-9.373-24.569 0-33.941L442.756 76.676l-35.703-35.705C391.982 25.9 402.656 0 424.024 0H552c13.255 0 24 10.745 24 24zM407.029 270.794l-16 16A23.999 23.999 0 0 0 384 303.765V448H64V128h264a24.003 24.003 0 0 0 16.97-7.029l16-16C376.089 89.851 365.381 64 344 64H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V287.764c0-21.382-25.852-32.09-40.971-16.97z"/&gt;&lt;/svg&gt; Incluir datos](https://r-pkgs.org/man.html) &lt;br&gt;
+[&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#4cc9f0;" viewBox="0 0 576 512"&gt;&lt;path d="M576 24v127.984c0 21.461-25.96 31.98-40.971 16.971l-35.707-35.709-243.523 243.523c-9.373 9.373-24.568 9.373-33.941 0l-22.627-22.627c-9.373-9.373-9.373-24.569 0-33.941L442.756 76.676l-35.703-35.705C391.982 25.9 402.656 0 424.024 0H552c13.255 0 24 10.745 24 24zM407.029 270.794l-16 16A23.999 23.999 0 0 0 384 303.765V448H64V128h264a24.003 24.003 0 0 0 16.97-7.029l16-16C376.089 89.851 365.381 64 344 64H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V287.764c0-21.382-25.852-32.09-40.971-16.97z"/&gt;&lt;/svg&gt; Documentar datos](https://kbroman.org/pkg_primer/pages/data.html) &lt;br&gt;
 
-- Funciones &lt;br&gt;
-Tu paquete en una hora por [&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#4cc9f0;" viewBox="0 0 576 512"&gt;&lt;path d="M576 24v127.984c0 21.461-25.96 31.98-40.971 16.971l-35.707-35.709-243.523 243.523c-9.373 9.373-24.568 9.373-33.941 0l-22.627-22.627c-9.373-9.373-9.373-24.569 0-33.941L442.756 76.676l-35.703-35.705C391.982 25.9 402.656 0 424.024 0H552c13.255 0 24 10.745 24 24zM407.029 270.794l-16 16A23.999 23.999 0 0 0 384 303.765V448H64V128h264a24.003 24.003 0 0 0 16.97-7.029l16-16C376.089 89.851 365.381 64 344 64H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V287.764c0-21.382-25.852-32.09-40.971-16.97z"/&gt;&lt;/svg&gt; Piping hot data](https://www.pipinghotdata.com/posts/2020-10-25-your-first-r-package-in-1-hour/)&lt;br&gt;
+- Blogs sobre funciones &lt;br&gt;
+Tu paquete en una hora por &lt;br&gt;
+[&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#4cc9f0;" viewBox="0 0 576 512"&gt;&lt;path d="M576 24v127.984c0 21.461-25.96 31.98-40.971 16.971l-35.707-35.709-243.523 243.523c-9.373 9.373-24.568 9.373-33.941 0l-22.627-22.627c-9.373-9.373-9.373-24.569 0-33.941L442.756 76.676l-35.703-35.705C391.982 25.9 402.656 0 424.024 0H552c13.255 0 24 10.745 24 24zM407.029 270.794l-16 16A23.999 23.999 0 0 0 384 303.765V448H64V128h264a24.003 24.003 0 0 0 16.97-7.029l16-16C376.089 89.851 365.381 64 344 64H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V287.764c0-21.382-25.852-32.09-40.971-16.97z"/&gt;&lt;/svg&gt; Piping hot data](https://www.pipinghotdata.com/posts/2020-10-25-your-first-r-package-in-1-hour/)&lt;br&gt;
+
+- Videos&lt;br&gt;
+[&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#4cc9f0;" viewBox="0 0 576 512"&gt;&lt;path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/&gt;&lt;/svg&gt; Rladies como crear funciones](https://www.youtube.com/watch?v=TCIMT6l53tQ&amp;t)&lt;br&gt;
+[&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#4cc9f0;" viewBox="0 0 576 512"&gt;&lt;path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/&gt;&lt;/svg&gt; Rladies como crear paquetes](https://www.youtube.com/watch?v=IlWMkz769B4&amp;t)
 
 ---
 name: intro
@@ -75,7 +87,7 @@ background-size: cover
 
 ---
 
-## 1.1. Intro
+# 1. Intro
 
 **Problemas**
 - Repito pasos y análisis con datos similares...  
@@ -87,12 +99,12 @@ background-size: cover
 - Los artículos me piden más detalles de como se realizaron los análisis...   
 .right[ _el espacio es limitado para dar detalles_ ]
 
-- Existen paquetes similares pero que no cubren con todos los pasos...   
-.right[  _uso partes de algunos paquetes y adapto a mi nuevo analisis_ ]
+- Aunque existan paquetes similares no cubren todos los pasos...   
+.right[  _sirven de inspiracion pero no resuelven mi problema_ ]
 
 **Motivantes**
 
-- Quiero que otras personas puedan replicar mis análisis y que las funciones esten accesibles.
+- Quiero que otras personas puedan replicar mis análisis y que las funciones estén accesibles.
 
 - Quiero hacer las funciones y documentación este en ingles y español.  
 
@@ -101,7 +113,7 @@ background-size: cover
 ## 1.2. Crear paquete
 
 **Paquete**  
-Para crear paquetes yo use el paquete **usethis**
+Para crear paquetes se puede usar el paquete **usethis**
 
 Para instalar y cargar el paquete:
 
@@ -114,9 +126,9 @@ library(usethis)
 
 ## 1.2. Checa nombre
 
-Antes de iniciar tu paquete, puedes consultar el nombre en la página [CRAN](https://cran.r-project.org/)
+Antes de iniciar a crear un paquete, se puede consultar el nombre en la página [CRAN](https://cran.r-project.org/)
 
-Para ayudarte, existe el paquete **available** para revisar si tu paquete ya existe en CRAN o en github y si el nombre de tu paquete puede ser ofensivo.
+También existe el paquete **available** para revisar si el paquete ya existe en CRAN o en github y si el nombre de tu paquete puede ser ofensivo.
 
 ```r
 install.packages('available')
@@ -124,12 +136,13 @@ library(available)
 available("nombre_paquete")
 ```
 
-Ejemplo con mi paquete:
+Ejemplo con este paquete:
 
 ```r
 available("spheniscus")
 ```
-Una vez le des enter, te pregunta si quieres que revise por contenido ofensivo, puedes poner **Y**.
+
+Pregunta si quieres que revise por contenido ofensivo, puedes poner **Y**.
 
 ```r
 Urban Dictionary can contain potentially offensive results,
@@ -148,7 +161,7 @@ Dentro pon el nombre del paquete que te interesa.
 usethis::create_package("nombre_paquete")
 ```
 
-Te debio aparecer algo asi:
+Aparecera algo así:
 
 ```r
 √ Creating 'nombre_paquete/'
@@ -178,14 +191,17 @@ RoxygenNote: 7.1.1
 
 ---
 
-## 1.3. Crear
+## 1.3. Archivos
 
-Creo los archivos:
+&lt;h1&gt;  📄📂️ &lt;/h1&gt;
+
+La función anterior creo los archivos:
 - .gitignore
 - .Rbuildignore
 - DESCRIPTION
 - NAMESPACE
 - README.md
+
 
 Los Folders:
 - R
@@ -195,8 +211,9 @@ Los Folders:
 
 ## 1.1. Intro
 
-Si estas dentro de un **proyecto** te va preguntar si quieres sobregrabar el proyecto existente.  
-Yo le di **2: Absolutely**
+Si te encuentras dentro de un **proyecto** va a preguntar si deseas sobregrabar el proyecto existente.  
+
+Si es el caso: **2: Absolutely**
 
 
 ```r
@@ -208,7 +225,7 @@ Overwrite pre-existing file 'nombre_paquete.Rproj'?
 3: No way
 ```
 
-Me aparecio:
+Aparecer algo como:
 
 ```r
 v Writing 'nombre_paquete.Rproj'
@@ -217,7 +234,8 @@ v Adding '^\\.Rproj\\.user$' to '.Rbuildignore'
 v Opening '...' in new RStudio session
 v Setting active project to '&lt;no active project&gt;'
 ```
-Me abrio el proyecto en otra ventana.
+
+Se abrirá el proyecto en otra ventana.
 
 
 ---
@@ -230,7 +248,7 @@ Si ya tienes instalado git puedes directamente conectar el paquete con tu reposi
 usethis::use_git()
 ```
 
-Te aparece:
+Aparecerá algo como:
 
 ```r
 √ Setting active project to '...'
@@ -247,13 +265,13 @@ Is it ok to commit them?
 3: Negative
 ```
 
-Yo le dije 3: Yup... aunque me tomo un segundo decidir que eso era un **si**
+3: Yup... es **si**
 
 ---
 
 ## 1.2. Git
 
-Me aparecio
+Aparecerá algo como:
 
 ```r
 √ Adding files
@@ -264,31 +282,31 @@ Restart now?
 2: No
 3: Not now
 ```
+Si deseas reiniciar RStudio para activar git:  
+1: Yup... es **sip**
 
-Yo le dije 1: Yup... que es como decir **sipi**
-
-Y se reinició la sesion
+Se reiniciara la sesión
 
 ---
 
 ## 1.3. Github
 
-Otra vez en la consola escribí
+Otra vez en la consola escribir:
 
 ```r
 usethis::use_github()
 ```
 
-Me apareció
+Aparecer algo como:
 
 ```r
 i Defaulting to https Git protocol
-√ Setting active project to 'C:/Users/Lerma/Documents/spheniscus'
+√ Setting active project to 'C:/...'
 √ Checking that current branch is default branch ('master')
-√ Creating GitHub repository 'MiriamLL/spheniscus'
-√ Setting remote 'origin' to 'https://github.com/MiriamLL/spheniscus.git'
-√ Setting URL field in DESCRIPTION to 'https://github.com/MiriamLL/spheniscus'
-√ Setting BugReports field in DESCRIPTION to 'https://github.com/MiriamLL/spheniscus/issues'
+√ Creating GitHub repository '...'
+√ Setting remote 'origin' to 'https://github.com/...git'
+√ Setting URL field in DESCRIPTION to 'https://github.com/...'
+√ Setting BugReports field in DESCRIPTION to 'https://github.com/...'
 There is 1 uncommitted file:
  'DESCRIPTION'
 Is it ok to commit it?
@@ -296,13 +314,13 @@ Is it ok to commit it?
 2: No way
 3: I agree
 ```
-Le di 3: I agree
+Si es correcto elegir 3: I agree, que significa de acuerdo
 
 ---
 
 ## 1.4. Github
 
-Me apareció
+Aparecerá algo como:
 
 ```r
 √ Adding files
@@ -310,27 +328,27 @@ Me apareció
 √ Pushing 'master' branch to GitHub and setting 'origin/master' as upstream branch
 √ Opening URL 'https://github.com/...'
 ```
-Y me abrió github
+Abrirá github
 
 ---
 
 ## 1.4. devtools
 
-Escribí en la consola
+Escribir en la consola
 
 ```r
 devtools::check()
 ```
 
-Y reviso la versión, plataforma, sesiones y demás.   
-Tardo un poquito.  ⏳
+Al hacer esto, se reviso la versión, plataforma, sesiones y demás.   
+Tarda un poquito.  ⏳
 
 
 ```r
 0 errors √ | 1 warning x | 0 notes √
 ```
 
-El **warning** es porque debo darle una licencia
+El **warning** ocurre porque hay que darle una licencia al paquete.
 
 ```r
 Non-standard license specification:
@@ -342,6 +360,8 @@ Non-standard license specification:
 
 ---
 
+name: licencia
+
 ## 1.5. Licencia
 
 Para sofware la licencia más común es **MIT**
@@ -350,7 +370,7 @@ Para sofware la licencia más común es **MIT**
 usethis::use_mit_license("Mi Nombre")
 ```
 
-Me apareció esto:
+Aparecer algo como:
 
 ```r
 √ Setting License field in DESCRIPTION to 'MIT + file LICENSE'
@@ -371,12 +391,12 @@ Tarda un poquito
 0 errors √ | 0 warning √ | 0 notes √
 ```
 
-
 ---
 
 ## 1.6. metadata
 
-Abre y modifica el documento que dice DESCRIPTION, agregando tus datos.  
+Para agregar metadata se debe abrir y modificar el documento que dice DESCRIPTION, agregando tus datos.  
+
 Esta es la información de contacto si hay problemas con el paquete.  
 
 ```r
@@ -426,8 +446,8 @@ background-size: cover
 
 
 
-Por convencion deberas crear una carpeta que se llame **data** en tu paquete. &lt;br&gt;
-Puedes hacer eso iendo a tu pestaña de **Files** y elegir **New Folder**. &lt;br&gt;
+Por convención los datos puedes ser colocados en una carpeta que se llame **data** en el paquete. &lt;br&gt;
+Puedes hacer eso abriendo la pestaña de **Files** y eligiendo **New Folder**. &lt;br&gt;
 
 Para comprimir datos pesados puedes guardarlos como .rda.
 
@@ -453,25 +473,23 @@ pryr::mem_used()
 Para documentar tus datos, puedes abrir un nuevo script (File&gt;NewFile&gt;R Script) o usar la función del paquete **usethis**.
 
 ```r
-usethis::use_r("TDR_raw")
+usethis::use_r("mis_datos")
 ```
 
 Esta función agrega comentarios Roxigen y guarda el documento en tu folder llamado **R**. &lt;br&gt;
-En mi caso yo le di al script el mismo nombre que a los datos (TDR_raw). 
+En mi caso yo le di al script el mismo nombre que a los datos. 
 
 ```r
-#' Raw data from a TDR (time and depth recorder) of a Humboldt penguin
-#' The data includes raw data obtained from a Humbolt Penguin at Tilgo, Chile
-#' The information was collected during the breeding season 2018.
-#' It contains 264197 obs from 1 variable.
+#' Mis datos son datos de...
+#' Contiene 264197 obs de 1 variable.
 #' @docType data
-#' @usage data(TDR_raw)
-#' @format A data frame with three columns
+#' @usage data(mis_datos)
+#' @format Un data frame con 1 variable
 #' @keywords datasets
 #' @references Lerma et al. 2021
 #' @examples
-#' data(TDR_raw)
-"TDR_raw"
+#' data(mis_datos)
+"mis_datos"
 ```
 
 ---
@@ -501,12 +519,12 @@ save(TDR_raw, file="TDR_raw.rda", compress = "xz")
 
 ## 2.2. Instalar el paquete
 
-Si despues de usar **devtools::check()**, te aparece[]
+Si despues de usar **devtools::check()**, aparece:
 
 ```r
 0 errors √ | 0 warnings √ | 0 notes √
 ```
-Ya deberia funcionar 🥳.
+Ya tienes tu primer paquete con datos 🥳.
 
 - Para instalar el paquete de manera local
 
@@ -524,7 +542,9 @@ devtools::install_github("Desarrollador/paquete")
 
 ## 2.3. Ejemplo
 
-Mi paquete **spheniscus**
+Puedes probar como acceder a datos de un paquete usando el paquete spheniscus como ejemplo.
+
+Instalar paquete **spheniscus**
 
 ```r
 devtools::install_github("MiriamLL/spheniscus")
@@ -536,13 +556,15 @@ Cargar paquete
 library(spheniscus)
 ```
 
-Datos como objeto
+Cargar datos como objeto
 
 ```r
 TDR_raw&lt;-TDR_raw
 ```
 
 ---
+name: datos_ex
+class: inverse
 
 ## 2.4. Ejercicios
 
@@ -552,15 +574,16 @@ Agrega datos al paquete
 .panel[.panel-name[Crear]
 
 ```r
-save(TDR_raw, file="TDR_raw.rda")
+save(mis_datos, file="mis_datos.rda")
 ```
+**Nota** tu objeto, tu documento rda y tu R deben tener el mismo nombre. 
 ]
 
 .panel[.panel-name[Documentar]
 
 
 ```r
-usethis::use_r("TDR_raw")
+usethis::use_r("mis_datos")
 ```
 
 Insertar Roxigen Skeleton  (CTRL+ALT+SHIFT+R) o copiar y pegar de otro archivo
@@ -589,7 +612,7 @@ background-size: cover
 
 ---
 
-# 3. Función con dependencia
+# 3. Funciónes
 
 Para este paso deberías tener alguna función en mente.  
 
@@ -606,57 +629,60 @@ nombre_de_la_funcion&lt;-function(argumentos){
 
 ---
 
-## 3.1. Probar función
+## 3.1. Funciones con dependencia
 
-Yo probé mi función con mis datos de ejemplo, antes de incluirla en el paquete.  
+Te recomiendo probar tu función con datos de ejemplo, antes de incluirla en el paquete.  
 
-1. Mi función requiere el paquete **tidyr** 
+- Revisa que paquetes son requeridos, por ejemplo: **tidyr** 
 
 
-2. Definí los argumentos por separado como objeto.
-
-```r
-data=TDR_raw
-row_start='Data Block 1'
-row_end='Data Block 2'
-```
-
-3. Corrí la funcion
+- Define los argumentos por separado como objeto.
 
 ```r
-extract_pressure(data = TDR_raw, row_start='Data Block 1',row_end='Data Block 2')
+data=misdatos
+mi_primer_argumento='mi_primer_argumento'
+mi_segundo_argumento='mi_segundo_argumento'
 ```
 
-Si funciona por lo que ahora la agregare a mi paquete.
+- Prueba la función
+
+```r
+mi_funcion(data = mis_datos,
+           mi_primer_argumento='mi_primer_argumento',
+           mi_segundo_argumento='mi_segundo_argumento')
+```
+
+
+Otra opción es usar el paquete ['testthat'](https://testthat.r-lib.org/) para probar tu función.
 
 ---
 
-## 3.2. Agregar función
+### 3.1.2. Agregar función
 
-Para agregar la función al paquete
+Para agregar la función al paquete:
 
 ```r
-usethis::use_r("extract_pressure")
+usethis::use_r("tu_funcion")
 ```
 
 **Abre un nuevo Rscript**  
-Pegue allí la función
+Pegua allí la función
 
-Me apareció
+Te aparecera algo como:
 
 ```r
- Modify 'R/extract_pressure.R'
+ Modify 'R/tu_funcion.R'
  Call `use_test()` to create a matching test file
 ```
-Ahora en mi carpeta **R** dentro del paquete aparece la función.  
+Ahora en la carpeta **R** dentro del paquete aparece la función.  
   
   
-**Nota** te sugiere que uses use_test pero yo no hice este paso porque entra en conflicto con el siguiente.
-Si le diste use_test igual puedes usar rm() más adeltante.
+**Nota** sugiere que uses use_test pero puede en conflicto con el siguiente paso.
+Puedes usar rm() para quitar tu función.
 
 ---
 
-## 3.3. Probar funcion
+### 3.1.3. Probar funcion
 
 Para poner la función en la memoria local y confirmar que se ejecute hay que incluirla en el paquete y probarla.
 
@@ -666,11 +692,11 @@ devtools::load_all()
 
 ---
 
-## 3.4. Documentar la función
+### 3.1.4. Documentar la función
 
 Para documentar la función hay que crear un Roxigen skeleton.  
-Para esto tienes que poner el cursor justo en la primera linea de la función.  
-Te vas a la pestaña de Code&gt;Insert Reoxygen Skeleton (tambíen funciona con Control+Alt+Shift+R).  
+Para esto se debe poner el cursor justo en la primera linea de la función.  
+Después ir a la pestaña de Code&gt;Insert Reoxygen Skeleton (tambíen funciona con Control+Alt+Shift+R).  
 
 Va a aparecer algo así:
 
@@ -678,8 +704,8 @@ Va a aparecer algo así:
 #' Title
 #'
 #' @param data 
-#' @param row_start 
-#' @param row_end 
+#' @param mi_primer_argumento 
+#' @param mi_segundo_argumento 
 #'
 #' @return
 #' @export
@@ -690,28 +716,8 @@ Va a aparecer algo así:
 
 ---
 
-## 3.4. Documentar la funcion
 
-En mi caso aproveche y rellene todo en ingles y español.  
-Aunque creo que quedo pesado para leerse.  
-
-
-```r
-#' Extracts pressure data from raw time and depth data/Extrae data de presion desde dispositivos TDR
-#'
-#' @param data is the raw data as imported from your device/son los datos crudos descargados de tu dispositivo
-#' @param row_start is the name of the row where the pressure data starts to be recorded/es el nombre de la fila donde empieza a tomar los datos de presion
-#' @param row_end is the name of the row where the pressure data finishes to be recorded/es el nombre de la fila donde termina de tomar los datos de presion
-#'
-#' @return it will return a object/te regresa un objeto
-#' @export
-#'
-#' @examples TDR_pressure&lt;-extract_pressure(data=TDR_raw, row_start='Data Block 1', row_end = 'Data Block 2')
-```
-
----
-
-## 3.5. Agregar la función 
+### 3.1.5. Agregar la función 
 
 Ahora, que ya esta la función y la documentación para agregar el paquete hay que escribir en la consola:
 
@@ -723,54 +729,55 @@ Aparece:
 
 ```r
 Writing NAMESPACE
-Writing extract_pressure.Rd
+Writing mi_funcion.Rd
 ```
 
-Ahora si abres tu carpeta que dice **man** te aparece un documento rellenado.  
+Ahora en la carpeta **man**, aparece un documento rellenado.  
 **man** viene de manual y esta es la documentación del paquete.  
+
 **Nota** No debe ser editado de manera manual.  
 
-Ya puedes revisar tu documentación!
+Puedes revisar la documentación de la función.
 
 ```r
-?extract_pressure
+?mi_funcion
 ```
 
 ---
 
-## 3.6. Dependencias
+### 3.1.6. Dependencias
 
-Dependencias hasta donde entendí, son paquetes que necesitas cargar para que tu función, funcione.
+Dependencias son paquetes necesarios para que la función, funcione.
 
-Para revisar las dependencias puedes usar: 
+Para revisar si necesitas dependencias se puede usar: 
 
 ```r
 devtools::check()
 ```
 Si tu paquete tiene dependencias, apareceran errores, warnings y notas.  
 
-Por ejemplo mi paquete tiene: 
-- un **%&gt;% (pipe)** del paquete **magrittr**, y 
-- usa la función **separate** que es del paquete **dplyr**.
+Por ejemplo un paquete tiene que tiene: 
+- un **%&gt;% (pipe)** depende del paquete **magrittr**, y 
+- la función **separate** depende del paquete **dplyr**.
 
 ---
 
-## 3.7 Agregar dependencias
+### 3.1.7 Agregar dependencias
 
-Para agregar las dependencias puedes escribir el nombre de los paquetes dentro de la funcion **use_package**
+Para agregar las dependencias se puede escribir el nombre de los paquetes dentro de la función **use_package**
 
 ```r
 usethis::use_package("dplyr")
 ```
 
-A mi me aparecio:
+Aparecera algo como:
 
 ```r
 √ Adding 'dplyr' to Imports field in DESCRIPTION
  Refer to functions with `dplyr::fun()`
 ```
 
-Ahora en DESCRIPTION me aparece
+Asi mismo aparecera en DESCRIPTION:
 
 ```r
 Imports: 
@@ -783,10 +790,9 @@ Lo siguiente es especificar el paquete en la función, tal como recomienda el si
  Refer to functions with `dplyr::fun()`
 ```
 
-
 ---
 
-## 3.7 Agregar pipe
+### 3.1.7 Agregar pipe
 
 La función **pipe (%&gt;%)** del paquete magrittr es especial.  
 
@@ -796,7 +802,7 @@ Por lo que hay que usar:
 usethis::use_pipe()
 ```
 
-Me apareció: 
+Aparecera algo como: 
 
 ```r
 √ Adding 'magrittr' to Imports field in DESCRIPTION
@@ -804,120 +810,78 @@ Me apareció:
  Run `devtools::document()` to update 'NAMESPACE'
 ```
 
-Y después revise el paquete:  
+Se recomienda volver a documentar.
 
 ```r
 devtools::document()
 ```
 
-Ahora debe aparecer en R un script llamado **utils-pipe.R** y  
-en la DESCRIPTION debe aparecer **Imports magrittr**
+Ahora debera aparecer en R un script llamado **utils-pipe.R** y  
+en la DESCRIPTION debera aparecer **Imports magrittr**
 
 ---
 
-## 3.7 Revisar dependencias
-
-Revisar si todo funciono.  
+### 3.1.8. Checar paquete
 
 ```r
 devtools::check()
 ```
 
-Aun aparece una nota.  
 
 ```r
-0 errors √ | 0 warnings √ | 1 note x
+0 errors √ | 0 warnings √ | 0 notes √
 ```
 
-En mi función original tenia assign a GlobalEnv.  
-Esto no es recomendado en paquetes.  
-Lo siguiente que hice fue corregir a return().
+Listo el paquete esta listo para ser usado por otros.
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
 
-Antes:  
-
-```r
-  Found the following assignments to the global environment:
-  File 'spheniscus/R/cut_rawdata.R':
-    assign("TDR_pressure", TDR_pressure, envir = .GlobalEnv)
-```
-
-Después:  
-
-```r
-return(TDR_pressure)
-```
-
-Volver a checar
-
-```r
-devtools::check()
-```
+.center[
+&lt;h1&gt;🥳&lt;/h1&gt;
+]
 
 ---
 name: segunda
 
-# 4. Función sin dependencias
+## 3.2. Función sin dependencias
 
-Cree una segunda función con datos de GPS.  
+Una vez creada una funcion con dependencias declaradas. Una nueva funcion que use los mismos paquetes puede ser creada reduciendo pasos.  
 
-
-
-
-
-
-No obstante para esta función requiere que tengas una columna que se llame tStamp (y aun no decido si eso es muy relevante para los demás).  
 
 ```r
-extract_trip&lt;-function(data=data,
-                   timeformat=t_format,
-                   trip_start=t_start,
-                   trip_end=t_end){
-  data$daytime&lt;- as.POSIXct(strptime(as.character(data$tStamp), 
-                                    timeformat), "GMT")
-  trip_start&lt;-as.POSIXct(strptime(trip_start, timeformat), 'GMT')
-  trip_end&lt;-as.POSIXct(strptime(trip_end, timeformat), 'GMT')
-  TDR_no_start&lt;-subset(data, data$daytime&gt;=trip_start)
-  TDR_no_end &lt;- subset(TDR_no_start, TDR_no_start$daytime&lt;= trip_end)
-  TDR_trip&lt;-TDR_no_end  
-  return(TDR_trip)
-}
+mi_segunda_funcion(data = mis_datos,
+           mi_primer_argumento='mi_primer_argumento',
+           mi_segundo_argumento='mi_segundo_argumento')
 ```
-
-
-
----
-
-## 4.1. Agregar función
 
 Para agregar la función al paquete
 
 ```r
-usethis::use_r("extract_trip")
+usethis::use_r("mi_segunda_funcion")
 ```
 
 **Abre un nuevo script**  
-Pegue allí la función
+Pega allí la función
 
-Me apareció: 
+Aparecera algo como: 
 
 ```r
 √ Setting active project to 'C:/...'
- Modify 'R/extract_trip.R'
+ Modify 'R/mi_segunda_funcion.R'
  Call `use_test()` to create a matching test file
 ```
-
-Ahora en mi carpeta R tengo dentro la función
-
+Ahora en la carpeta R aparecera dentro la función
 
 ---
 
-## 4.2. Documentar la funcion
+### 3.2.1. Documentar la funcion
+Agregar un Roxigen skeleton:  
+- Poner el cursor justo en la primera linea de la función. 
+- Abrir la pestaña de Code&gt;Insert Reoxygen Skeleton (también funciona con Control+Alt+Shift+R).  
 
-Agregue un Roxigen skeleton.  
-Poniendo el cursor justo en la primera linea de la función. 
-Abriendo la pestaña de Code&gt;Insert Reoxygen Skeleton (también funciona con Control+Alt+Shift+R).  
-
-Va a aparecer algo así:
+Aparecera algo como:
 
 ```r
 #' Title
@@ -935,7 +899,7 @@ Va a aparecer algo así:
 
 ---
 
-## 4.3. Agregar la función
+### 3.2.2. Agregar la función
 
 Para agregar la función al paquete:  
 Escribir en la consola
@@ -944,43 +908,168 @@ Escribir en la consola
 devtools::document()
 ```
 
-Aparece:
+Aparecera algo como:
 
 ```r
 Writing NAMESPACE
-Writing extract_trip.Rd
+Writing mi_segunda_funcion.Rd
 ```
 
-Ahora si abres tu carpeta que dice man te aparece un documento rellenado.
-man viene de manual y esta es la documentación del paquete. No debe ser editado de manera manual.
+Al abrir la carpeta **man** aparecera un documento rellenado.  
+El nombre **man** viene de manual y esta es la documentación del paquete.  
+No debe ser editado de manera manual.
 
-Ya puedes revisar tu documentación!
+Ya puedes revisar la documentación.
 
 ```r
-?extract_trip
+?mi_segunda_funcion
 ```
 
----
+Esta función no tiene nuevas dependencias, así que se puede omitir ese paso.  
 
-## 4.5. Dependencias
-
-Esta función no tiene nuevas dependencias, así que no tuve que agregarlas.  
-
-Revisar el paquete:
 
 ```r
 devtools::check()
 ```
 
-Pero... **problemas**:  
-El ejemplo tiene mas de 100 characteres, es muy largo!.  
+---
+
+## 3.3. Funcion con stats
+
+Cuando queremos agregar alguna función que incluya cálculos de desviación estándar, aunque no se necesite cargar el paquete en RStudio, la función proviene de un paquete.
+
+El paquete es **stats** 
+
+Por lo tanto el paquete **stats** debe ser incluido en las dependencias.
 
 ```r
-    \examples lines wider than 100 characters:
-       TDR_trip&lt;-cut_trip(data=TDR_pressure,timeformat="%d-%m-%Y %H:%M:%S",trip_start="30-11-2018 20:43:24",trip_end="01-12-2018 20:16:19")
+usethis::use_package("stats")
 ```
 
-**Solución** Separar en la documentación
+Y agregado a la función.
+
+```r
+resultado&lt;- data %&gt;%
+    dplyr::summarise(max_depth_mean=mean(.data[[var1]]),
+                     max_depth_sd=stats::sd(.data[[var1]]),
+                     max_depth_max=max(.data[[var1]]))
+```
+
+
+```r
+devtools::document()
+devtools::check()
+```
+
+---
+
+## 3.4.  Funcion con ggplot
+
+Cuando creamos una función con ggplot hay que declarar el uso de la función en varios argumentos de la función.  [Leer mas](https://ggplot2.tidyverse.org/articles/ggplot2-in-packages.html).
+
+Si no, aparecera un error:
+
+```r
+1 error x | 0 warnings √ | 1 note x
+```
+
+Esto occurre debido a que al revisar el paquete, no detecta varias funciones del paquete ggplot.  
+
+```r
+no visible global function definition for 'aes'
+```
+
+Ejemplo.    
+
+```r
+ggplot2::ggplot(data=data,ggplot2::aes(x=.data[[var1]],
+                              y=as.numeric(.data[[var2]])))+
+    ggplot2::geom_line()+
+    ggplot2::ylab("Diving depth (m)")+
+    ggplot2::xlab("Month.Day Hour:Minute")+
+    ggplot2::scale_y_reverse()+
+    ggplot2::theme_bw()
+```
+
+---
+
+### 3.3.1. Funcion con ggplot
+
+
+```r
+checking R code for possible problems ...
+```
+
+Tambien pueden aparecer problemas con las variables al usar ggplot dentro de una funcion.
+
+```r
+no visible binding for global variable '.mis_datos'
+```
+
+Para resolver esto hay que declarar las variables dentro de la funcion y posteriormente usar .data
+
+```r
+data&lt;-TDR_trip
+var1&lt;-time_column
+var2&lt;-depth_column
+  
+ggplot2::ggplot(data,
+                ggplot2::aes(x=.data[[var1]],
+                             y=.data[[var2]))+
+    ggplot2::geom_line()
+```
+
+
+```r
+devtools::document()
+devtools::check()
+```
+
+---
+
+## 3.5. Algunos problemas
+
+### 3.5.1. Usar assign
+
+**Problema**
+En algunas funciones puedes haber usado:
+
+```r
+assign("mi_resultado", mi_resultado, envir = .GlobalEnv)
+```
+
+Usar assign no es recomendado, por lo que aparecera una nota.  
+
+```r
+0 errors √ | 0 warnings √ | 1 note x
+```
+
+**Solucion**
+Usar return().
+
+```r
+return(mi_resultado)
+```
+
+Si vuelves a checar, debera desaparecer esa nota.
+
+```r
+devtools::check()
+```
+
+---
+
+### 3.5.2. Ejemplo muy largo
+
+**Problema**
+El ejemplo tiene mas de 100 characteres, es considerado muy largo.  
+
+```r
+\examples lines wider than 100 characters:
+```
+
+**Solución**   
+Separar en la documentación
 
 ```r
 #' t_format&lt;-"%d-%m-%Y %H:%M:%S"
@@ -997,91 +1086,28 @@ El ejemplo tiene mas de 100 characteres, es muy largo!.
 
 ---
 
-# 5. Funcion con ggplot
+### 3.5.3. Multiples resultados
 
-Cuando creamos una funcion con ggplot hay que agregar en varias partes ggplot2::
+**Problema**
+R solo permite un solo return dentro de las funciones. 
 
-```r
-devtools::check()
-```
-
-Si no aparecera un error.
+**Solución**   
+Crea una lista con los returns
 
 ```r
-1 error x | 0 warnings √ | 1 note x
-```
-
-Debido a que no detecta la funcion aes
-
-```r
-plot_depth: no visible global function definition for 'aes'
-```
-
-[ggplot en paquetes](https://ggplot2.tidyverse.org/articles/ggplot2-in-packages.html)
-
----
-
-## 5.1. Funcion con ggplot
-
-
-```r
-checking R code for possible problems ...
-```
-
-Tambien tiene problemas con las variables
-
-```r
-plot_depth: no visible binding for global variable '.TDR_trip'
-```
-
-Por lo que hay que usar .data
-
-```r
-ggplot2::ggplot(data,
-                ggplot2::aes(x=.data[[depth_column]],
-                             y=.data[[time_column]]))+
-    ggplot2::geom_line()
-```
-
-
----
-
-# 6. Funcion con stats
-
-
-```r
-sd_depth&lt;-dplyr::aggregate(TDR_dives[,depth_column],list(TDR_dives$dives), stats::sd)
-```
-
-Este es un paquete que no esta declarado en Rstudio pero hay que ponerlo en las dependencias.
-
-
-```r
-usethis::use_package("stats")
+funcion(primer_argumento, segundo_argumento){
+  multiplicacion&lt;-primer_argumento*segundo_argumento
+  suma&lt;-primer_argumento+segundo_argumento
+  lista&lt;-(list("multiplicacion"=multiplicacion,"suma"=suma))
+  return(lista)
+}
 ```
 
 ---
 
-# 7. gitignore
-
-gitignore(https://cran.r-project.org/web/packages/gitignore/vignettes/introduction.html)
-
-Si borras una funcion, primero te da informacion de la actualizacion
-
-```r
-devtools::document()
-Objects listed as exports, but not present in namespace:
-```
-
-Luego ya esta actualizado
-
-```r
-devtools::document()
-```
-
----
-
-# 8. Ejercicios
+name: funciones_ex
+class: inverse
+## 3.6. Ejercicios
 
 Crea tu propia funcion
 
@@ -1122,37 +1148,54 @@ Referirse a funciones con ::
 
 ---
 
-name: sticker
 class: title-slide, center, middle
 background-image: url(https://images.unsplash.com/photo-1518289646039-3e6c87a5aaf6?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1351&amp;q=80)
 background-size: cover
 
-&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #000000 !important;font-size: 120px;" &gt;Stickers&lt;/span&gt;
+&lt;span style=" font-weight: bold;    color: white !important;border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #000000 !important;font-size: 120px;" &gt;Otros&lt;/span&gt;
 
 
 ---
 
-# 9. Crear tu propio sticker
+name: sticker
 
+# 4.1. Crear tu propio sticker
+
+Para crear un hexSticker puedes usar plantillas:
 - En powerpoint [plantilla hecha por Emi Tanaka](https://emitanaka.org/posts/hexsticker/) &lt;br&gt;
 - En R [paquete hexSticker hecho por GuangchuangYu](https://github.com/GuangchuangYu/hexSticker)
 
-Para instalar:  
+Para instalar el paquete hexSticker (esta en CRAN):  
 
 ```r
 install.packages("hexSticker")
 ```
 
+---
+
+# 4.2. Zenodo
+
+&lt;img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Zenodo_logo.jpg" height="50" style="display: block; margin: auto;" /&gt;
+
+[Zenodo](https://zenodo.org/) es un repositorio de acceso abierto operado por CERN (Organización Europea para la Investigación Nuclear).
+Permite que se depositen allí artículos de investigación, datos, software, informes y otro tipo de objeto digital relacionado con la investigación. La ventaja frente a github es que asigna un **DOI**.
+
+Las versiones de paquetes se pueden registrar en zenodo.
+No obstante, **no tan practico**  ya que cada versión tiene su propio doi y la versión anterior no puede ser eliminada.
 
 ---
+
 
 class: inverse
 
 # Recapitulando
 
 - [Que es un paquete](#intro)  
+- [Licencia](#licencia)  
 - [Como agregar datos](#datos)
-- [Como crear funcion](#funciones)
+- [Agregar datos al paquete](#datos_ex) 
+- [Como crear función](#funciones)
+- [Crear función](#funciones_ex)
 - [Como crear hexsticker](#sticker)
 
 .right[
