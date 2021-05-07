@@ -85,10 +85,12 @@ Tu paquete en una hora por <br>
 [`r fa("youtube", fill = ColorEnlaceInverso)` Rladies como crear funciones](https://www.youtube.com/watch?v=TCIMT6l53tQ&t)<br>
 [`r fa("youtube", fill = ColorEnlaceInverso)` Rladies como crear paquetes](https://www.youtube.com/watch?v=IlWMkz769B4&t)
 
+- Portada por [`r fa("camera-retro", fill = ColorEnlaceInverso)` Clark Van Der Beken](https://unsplash.com/@snapsbyclark)
+
 ---
 name: intro
 class: title-slide, center, middle
-background-image: url(https://images.unsplash.com/photo-1518289646039-3e6c87a5aaf6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1351&q=80)
+background-image: url(https://images.unsplash.com/photo-1576345370995-26018389c723?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80)
 background-size: cover
 
 `r text_spec("Paquetes", background = "#000000", color = "white", bold = T, font_size=120)`
@@ -1094,7 +1096,7 @@ Referirse a funciones con ::
 ---
 
 class: title-slide, center, middle
-background-image: url(https://images.unsplash.com/photo-1518289646039-3e6c87a5aaf6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1351&q=80)
+background-image: url(https://images.unsplash.com/photo-1576345370995-26018389c723?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80)
 background-size: cover
 
 `r text_spec("Otros", background = "#000000", color = "white", bold = T, font_size=120)`
