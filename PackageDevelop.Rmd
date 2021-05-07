@@ -21,18 +21,18 @@ options(knitr.table.format = "latex")
 ```
 
 class: title-slide, center, middle
-background-image: url(https://images.unsplash.com/photo-1518289646039-3e6c87a5aaf6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1351&q=80)
+background-image: url(https://images.unsplash.com/photo-1576345370995-26018389c723?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80)
 background-size: cover
 
-`r text_spec("Crear tus propios", background = "#000000", color = "white", bold = T)` <br>
+`r text_spec("Crear tus propios", background = "#1d3557", color = "white", bold = T)` <br>
 <br>
 <br>
-`r text_spec("Paquetes", background = "#000000", color = "white", bold = T, font_size=120)`
+`r text_spec("Paquetes", background = "#1d3557", color = "white", bold = T, font_size=120)`
 
 <br>
-<h2>`r text_spec("Miriam Lerma", background = "#000000", color = "white", bold = T)`</h2>
+<h2>`r text_spec("Miriam Lerma", background = "#1d3557", color = "white", bold = T)`</h2>
 
-<h3>`r text_spec("Mayo 2021", background = "#000000", color = "white", bold = T)`</h3>
+<h3>`r text_spec("Mayo 2021", background = "#1d3557", color = "white", bold = T)`</h3>
 
 
 ---
@@ -418,10 +418,10 @@ use_readme_rmd(open = rlang::is_interactive())
 
 name: datos
 class: title-slide, center, middle
-background-image: url(https://images.unsplash.com/photo-1518289646039-3e6c87a5aaf6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1351&q=80)
+background-image: url(https://images.unsplash.com/photo-1576345370995-26018389c723?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80)
 background-size: cover
 
-`r text_spec("Datos", background = "#000000", color = "white", bold = T, font_size=120)`
+`r text_spec("Datos", background = "#1d3557", color = "white", bold = T, font_size=120)`
 
 
 ---
@@ -598,10 +598,10 @@ devtools::check()
 ---
 name: funciones
 class: title-slide, center, middle
-background-image: url(https://images.unsplash.com/photo-1518289646039-3e6c87a5aaf6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1351&q=80)
+background-image: url(https://images.unsplash.com/photo-1576345370995-26018389c723?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80)
 background-size: cover
 
-`r text_spec("Funciones", background = "#000000", color = "white", bold = T, font_size=120)`
+`r text_spec("Funciones", background = "#1d3557", color = "white", bold = T, font_size=120)`
 
 ---
 
@@ -1158,7 +1158,7 @@ y se encuentra en <br>
 ```{r, echo=FALSE, eval=FALSE}
 <h1>
 .center[
-[`r fa("home", fill = ColorEnlaceInverso)`](https://miriamlerma.netlify.app/materiales.html)
+[`r fa("home", fill = ColorEnlaceInverso)`](https://www.miriam-lerma.com/materiales.html)
 ]</h1>
 ```
 
