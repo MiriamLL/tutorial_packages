@@ -5,10 +5,6 @@
     <meta charset="utf-8" />
     <meta name="author" content="Miriam Lerma" />
     <script src="PackageDevelop_files/header-attrs-2.6/header-attrs.js"></script>
-    <script src="PackageDevelop_files/clipboard-2.0.6/clipboard.min.js"></script>
-    <link href="PackageDevelop_files/xaringanExtra-clipboard-0.2.4/xaringanExtra-clipboard.css" rel="stylesheet" />
-    <script src="PackageDevelop_files/xaringanExtra-clipboard-0.2.4/xaringanExtra-clipboard.js"></script>
-    <script>window.xaringanExtraClipboard(null, {"button":"Copy Code","success":"Copied!","error":"Press Ctrl+C to Copy"})</script>
     <link href="PackageDevelop_files/panelset-0.2.4/panelset.css" rel="stylesheet" />
     <script src="PackageDevelop_files/panelset-0.2.4/panelset.js"></script>
     <link rel="stylesheet" href="Package-themer.css" type="text/css" />
@@ -43,9 +39,9 @@ class: inverse
 - [Que es un paquete](#intro)  
 - [Licencia](#licencia)  
 - [Como agregar datos](#datos)
-- [Agregar datos al paquete](#datos_ex) 
+- [Ejercicio datos](#datos_ex) 
 - [Como crear función](#funciones)
-- [Crear función](#funciones_ex)
+- [Ejercicio funciones](#funciones_ex)
 - [Como crear hexsticker](#sticker)
 
 
@@ -93,22 +89,22 @@ background-size: cover
 
 **Problemas**
 - Repito pasos y análisis con datos similares...  
-.right[ _hasta ahora reciclo funciones de scripts anteriores_ ]
+.right[ _hasta ahora re-uso funciones de scripts anteriores_ ]
 
 - Estudiantes y colegas me preguntan como realizar análisis similares...  
-.right[ _muchos no estan familizarizados con la sintaxis de las funciones_]
+.right[ _muchos no estan familiarizados con la sintaxis de las funciones_]
 
 - Los artículos me piden más detalles de como se realizaron los análisis...   
 .right[ _el espacio es limitado para dar detalles_ ]
 
 - Aunque existan paquetes similares no cubren todos los pasos...   
-.right[  _sirven de inspiracion pero no resuelven mi problema_ ]
+.right[  _sirven de inspiración pero no resuelven el problema_ ]
 
 **Motivantes**
 
 - Quiero que otras personas puedan replicar mis análisis y que las funciones estén accesibles.
 
-- Quiero hacer las funciones y documentación este en ingles y español.  
+- Quiero hacer las funciones y documentación este en inglés y español.  
 
 ---
 
@@ -130,7 +126,7 @@ library(usethis)
 
 Antes de iniciar a crear un paquete, se puede consultar el nombre en la página [CRAN](https://cran.r-project.org/)
 
-También existe el paquete **available** para revisar si el paquete ya existe en CRAN o en github y si el nombre de tu paquete puede ser ofensivo.
+También existe el paquete **available** para revisar si el paquete ya existe en CRAN o en github y si el nombre de el paquete puede ser ofensivo.
 
 ```r
 install.packages('available')
@@ -150,20 +146,20 @@ Pregunta si quieres que revise por contenido ofensivo, puedes poner **Y**.
 Urban Dictionary can contain potentially offensive results,
   should they be included? [Y]es / [N]o:
 ```
-Después te abre las paginas para mostrarte que significa el nombre de tu paquete.
+Después abre paginas para mostrar que significa el nombre de el paquete.
 
 ---
 
 ## 1.3. Crear
 
 Para crear un paquete la función **create_package** crea el **esqueleto** de los paquetes.  &lt;br&gt;
-Dentro pon el nombre del paquete que te interesa.  
+Dentro puedes poner el nombre del paquete que te interesa crear.  
 
 ```r
 usethis::create_package("nombre_paquete")
 ```
 
-Aparecera algo así:
+Aparecerá algo así:
 
 ```r
 √ Creating 'nombre_paquete/'
@@ -197,7 +193,7 @@ RoxygenNote: 7.1.1
 
 &lt;h1&gt;  📄📂️ &lt;/h1&gt;
 
-La función anterior creo los archivos:
+La función anterior creó los archivos:
 - .gitignore
 - .Rbuildignore
 - DESCRIPTION
@@ -205,7 +201,7 @@ La función anterior creo los archivos:
 - README.md
 
 
-Los Folders:
+Las Carpetas:
 - R
 
 
@@ -227,7 +223,7 @@ Overwrite pre-existing file 'nombre_paquete.Rproj'?
 3: No way
 ```
 
-Aparecer algo como:
+Aparecerá algo como:
 
 ```r
 v Writing 'nombre_paquete.Rproj'
@@ -299,7 +295,7 @@ Otra vez en la consola escribir:
 usethis::use_github()
 ```
 
-Aparecer algo como:
+Aparecerá algo como:
 
 ```r
 i Defaulting to https Git protocol
@@ -343,7 +339,7 @@ devtools::check()
 ```
 
 Al hacer esto, se reviso la versión, plataforma, sesiones y demás.   
-Tarda un poquito.  ⏳
+Tarda un poquito  ⏳
 
 
 ```r
@@ -372,7 +368,7 @@ Para sofware la licencia más común es **MIT**
 usethis::use_mit_license("Mi Nombre")
 ```
 
-Aparecer algo como:
+Aparecerá algo como:
 
 ```r
 √ Setting License field in DESCRIPTION to 'MIT + file LICENSE'
@@ -381,7 +377,7 @@ Aparecer algo como:
 √ Adding '^LICENSE\\.md$' to '.Rbuildignore'
 ```
 
-Para revisar si funcionó
+Para revisar si funcionó:
 
 ```r
 devtools::check()
@@ -693,10 +689,10 @@ Para agregar la función al paquete:
 usethis::use_r("tu_funcion")
 ```
 
-**Abre un nuevo Rscript**  
-Pegua allí la función
+**Abre un nuevo script**  
+Pega allí la función
 
-Te aparecera algo como:
+Te aparecerá algo como:
 
 ```r
  Modify 'R/tu_funcion.R'
@@ -705,8 +701,8 @@ Te aparecera algo como:
 Ahora en la carpeta **R** dentro del paquete aparece la función.  
   
   
-**Nota** sugiere que uses use_test pero puede en conflicto con el siguiente paso.
-Puedes usar rm() para quitar tu función.
+**Nota** sugiere que uses use_test pero puede en conflicto con el siguiente paso.  
+Puedes usar /rm() para quitar tu función.
 
 ---
 
@@ -782,9 +778,9 @@ Para revisar si necesitas dependencias se puede usar:
 ```r
 devtools::check()
 ```
-Si tu paquete tiene dependencias, apareceran errores, warnings y notas.  
+Si tu paquete tiene dependencias, aparecerán errores, warnings y notas.  
 
-Por ejemplo un paquete tiene que tiene: 
+Por ejemplo, un paquete que usa: 
 - un **%&gt;% (pipe)** depende del paquete **magrittr**, y 
 - la función **separate** depende del paquete **dplyr**.
 
@@ -798,14 +794,14 @@ Para agregar las dependencias se puede escribir el nombre de los paquetes dentro
 usethis::use_package("dplyr")
 ```
 
-Aparecera algo como:
+Aparecerá algo como:
 
 ```r
 √ Adding 'dplyr' to Imports field in DESCRIPTION
  Refer to functions with `dplyr::fun()`
 ```
 
-Asi mismo aparecera en DESCRIPTION:
+Así mismo aparecerá en el documento DESCRIPTION:
 
 ```r
 Imports: 
@@ -844,8 +840,8 @@ Se recomienda volver a documentar.
 devtools::document()
 ```
 
-Ahora debera aparecer en R un script llamado **utils-pipe.R** y  
-en la DESCRIPTION debera aparecer **Imports magrittr**
+Ahora deberá aparecer en la carpeta R un script llamado **utils-pipe.R** y  
+en el archivo DESCRIPTION deberá aparecer **Imports magrittr**
 
 ---
 
@@ -875,7 +871,7 @@ name: segunda
 
 ## 3.2. Función sin dependencias
 
-Una vez creada una funcion con dependencias declaradas. Una nueva funcion que use los mismos paquetes puede ser creada reduciendo pasos.  
+Una vez creada una función con dependencias declaradas. Una nueva función que use los mismos paquetes puede ser creada reduciendo pasos.  
 
 
 ```r
@@ -893,7 +889,7 @@ usethis::use_r("mi_segunda_funcion")
 **Abre un nuevo script**  
 Pega allí la función
 
-Aparecera algo como: 
+Aparecerá algo como: 
 
 ```r
 √ Setting active project to 'C:/...'
@@ -909,7 +905,7 @@ Agregar un Roxigen skeleton:
 - Poner el cursor justo en la primera linea de la función. 
 - Abrir la pestaña de Code&gt;Insert Reoxygen Skeleton (también funciona con Control+Alt+Shift+R).  
 
-Aparecera algo como:
+Aparecerá algo como:
 
 ```r
 #' Title
@@ -936,14 +932,14 @@ Escribir en la consola
 devtools::document()
 ```
 
-Aparecera algo como:
+Aparecerá algo como:
 
 ```r
 Writing NAMESPACE
 Writing mi_segunda_funcion.Rd
 ```
 
-Al abrir la carpeta **man** aparecera un documento rellenado.  
+Al abrir la carpeta **man** aparecerá un documento rellenado.  
 El nombre **man** viene de manual y esta es la documentación del paquete.  
 No debe ser editado de manera manual.
 
@@ -993,9 +989,9 @@ devtools::check()
 
 ## 3.4.  Funcion con ggplot
 
-Cuando creamos una función con ggplot hay que declarar el uso de la función en varios argumentos de la función.  [Leer mas](https://ggplot2.tidyverse.org/articles/ggplot2-in-packages.html).
+Cuando creamos una función con ggplot hay que declarar el uso de la función en varios argumentos de la función.  [Aquí puedes leer más](https://ggplot2.tidyverse.org/articles/ggplot2-in-packages.html).
 
-Si no, aparecera un error:
+Si no, aparecerá un error:
 
 ```r
 1 error x | 0 warnings √ | 1 note x
@@ -1028,13 +1024,13 @@ ggplot2::ggplot(data=data,ggplot2::aes(x=.data[[var1]],
 checking R code for possible problems ...
 ```
 
-Tambien pueden aparecer problemas con las variables al usar ggplot dentro de una funcion.
+También pueden aparecer problemas con las variables al usar ggplot dentro de una función.
 
 ```r
 no visible binding for global variable '.mis_datos'
 ```
 
-Para resolver esto hay que declarar las variables dentro de la funcion y posteriormente usar .data
+Para resolver esto hay que declarar las variables dentro de la función y posteriormente usar .data
 
 ```r
 data&lt;-TDR_trip
@@ -1090,14 +1086,13 @@ devtools::check()
 ### 3.5.2. Ejemplo muy largo
 
 **Problema**
-El ejemplo tiene mas de 100 characteres, es considerado muy largo.  
+El ejemplo tiene más de 100 caracteres, es considerado muy largo.  
 
 ```r
 \examples lines wider than 100 characters:
 ```
 
-**Solución**   
-Separar en la documentación
+**Solución** Separar en la documentación
 
 ```r
 #' t_format&lt;-"%d-%m-%Y %H:%M:%S"
@@ -1119,8 +1114,7 @@ Separar en la documentación
 **Problema**
 R solo permite un solo return dentro de las funciones. 
 
-**Solución**   
-Crea una lista con los returns
+**Solución** Crea una lista con los returns
 
 ```r
 funcion(primer_argumento, segundo_argumento){
@@ -1133,11 +1127,25 @@ funcion(primer_argumento, segundo_argumento){
 
 ---
 
+### 3.5.4. Otros problemas
+**Problema** No nested functions, no circular dependencies.   
+**Solución** No puedes usar funciones de tu paquete en otras funciones del mismo paquete.  
+
+**Problema** Borrar funciones.  
+**Solución** Para borrar funciones se debe borrar el script en el archivo R y volver a documentar el paquete para que se reflejen los cambios.  
+
+**Problema** Al usar slot en sapply.  
+**Solución** Hay que agregar la dependencia methods.  
+
+
+
+---
+
 name: funciones_ex
 class: inverse
 ## 3.6. Ejercicios
 
-Crea tu propia funcion
+Crea tu propia función
 
 .panelset[
 .panel[.panel-name[Crear]
@@ -1206,10 +1214,10 @@ install.packages("hexSticker")
 &lt;img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Zenodo_logo.jpg" height="50" style="display: block; margin: auto;" /&gt;
 
 [Zenodo](https://zenodo.org/) es un repositorio de acceso abierto operado por CERN (Organización Europea para la Investigación Nuclear).
-Permite que se depositen allí artículos de investigación, datos, software, informes y otro tipo de objeto digital relacionado con la investigación. La ventaja frente a github es que asigna un **DOI**.
 
-Las versiones de paquetes se pueden registrar en zenodo.
-No obstante, **no tan practico**  ya que cada versión tiene su propio doi y la versión anterior no puede ser eliminada.
+**Ventajas** Permite que se depositen allí artículos de investigación, datos, software, informes y otro tipo de objeto digital relacionado con la investigación. La ventaja frente a github es que asigna un DOI.
+
+**Desventajas** Las versiones de paquetes se pueden registrar en zenodo. No obstante, NO es tan practico  ya que cada versión tiene su propio DOI y la versión anterior no puede ser eliminada.
 
 ---
 
@@ -1220,10 +1228,10 @@ class: inverse
 
 - [Que es un paquete](#intro)  
 - [Licencia](#licencia)  
-- [Como agregar datos](#datos)
+- [Ejercicio datos](#datos)
 - [Agregar datos al paquete](#datos_ex) 
 - [Como crear función](#funciones)
-- [Crear función](#funciones_ex)
+- [Ejercicio función](#funciones_ex)
 - [Como crear hexsticker](#sticker)
 
 .right[
